@@ -1,0 +1,37 @@
+<!-- css背景 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        width: 500px;
+        height: 500px;
+        background-color: violet;
+        background-image: url('../imgs/logo.png');
+        /* 背景图片是否重复
+         no-repeat 不重复
+         repeat-x x方向重复
+         repeat-y y方向重复*/
+         background-repeat:  no-repeat;
+         /* 图片的位置表示:center left right top bottom 
+         px:两个值（x,y）如果只写了x的值，y默认是center
+         百分比*/
+         background-position: center;
+         
+    }
+    #container{
+        width: 200px;
+        height: 200px;
+        background: green url("../imgs/logo.png") center no-repeat;
+    }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div id="container"></div>
+</body>
+</html>
