@@ -1,0 +1,86 @@
+<!-- 选择器复习 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body{
+        height: 300px;
+
+    }
+    #wrapper{
+        height: 200px;
+        width: 200px;
+        background:red ;
+
+    }
+    .container{
+        height: 100px;
+        width: 200px;
+        background: pink;
+
+    }
+    /* span{
+        
+        background: purple;
+    } */
+    #main>.list{
+        color: blue;
+    
+    }
+   
+    #content span{
+        background:yellowgreen;
+        color: brown;
+    }
+    .container,.list{
+        background: indianred;
+    }
+    #link{
+        color:salmon ;
+
+    }
+    #link:hover{
+        color: yellowgreen;
+    }
+    /* link:hover是什么意思鼠标滑上的意思*/
+
+    </style>
+
+
+    
+    
+</head>
+        <!-- 
+        id选择器 唯一 id名语义化 #
+        class选择器 相同名可以有多个，他们的样式是相同的 .
+        标签选择器 
+        子代选择器 >
+        后代选择器 
+        分组选择器 ,
+        伪类选择器 :
+        -->
+<body>
+    <div id="wrapper">1</div>
+    <div class="container">2</div>
+    <div class="container">3</div>
+    <span>hello world</span>
+    <ul id = "main">
+        <li class="list">曹玉莹曹玉莹曹玉莹</li>
+    </ul>
+    
+    <div id="content">
+        <p>
+            <span>span1</span>
+        </p>
+        <span>
+            <p>apan2</p>
+        </span>
+    </div>
+    <a href="https://www.baidu.com/" id = "link">baidu</a>
+
+</body>
+</html>
