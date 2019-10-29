@@ -43,12 +43,35 @@
         }
         .menu_list_btn{
             margin-right: 10px;
+            position: relative;
+            bottom:3px;
+            
+        }
+        #logo{
+            text-align: center;
+        }
+        #logo img{
+            
+            width: 270px;
+            
+
+        }
+        #logo a{
+            display: inline-block;
+            width: 270px;
+            height: 129px;
+        }
+        .clearfix::after{
+            content: "";
+            display: block;
+            clear: both;
+        
         }
     </style>
 </head>
 <body>
     
-    <div id="container">
+    <div id="container" class="clearfix">
         <!--ul#menu>li.menu_list*9 -->
         <ul id="menu">
             <li class="menu_list">
@@ -81,8 +104,15 @@
             </li>
             <li class="menu_list">
                     <button class="menu_list_btn">更多产品</button>
-                </li>
+            </li>
+            <!-- 子元素设置浮动就会造成父元素的塌陷问题，那么就需要给父元素设置一个伪元素，进行清除浮动 -->
         </ul>
+    
+        <div id="logo">
+                <a href="https://baidu.com">
+                    <img src="http://s1.bdstatic.com/r/www/cache/mid/static/xueshu/img/logo_4b1971d.gif" alt="">
+                </a>
+        </div> 
     </div>
 </body>
 </html>
