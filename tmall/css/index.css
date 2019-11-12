@@ -1,8 +1,8 @@
-/* 页面(首页)当前样式 */
+/*首页样式 */
 #banner{
 
     background: orange;
-    text-align: center;
+     text-align: center;
 }
 /* input{
     float: left;
@@ -11,10 +11,246 @@ button{
     float: left;
 } */
 /* 
-行级块元素或行级元素，可以用text-align：cneter进行水平居中展示
-块级元素，必须用 margin :0px auto进行水平居中展示
+行级元素或者是行级块元素在父元素居中用 text-align：center
+块级元素在父元素中居中用 margin：0 auto
 */
-#banner>img{
+ #banner>img{
     display: block;
     margin: 0px auto;
+    /* 解决广告位图片与背景之间由于回车换行产生的一个小边距问题 */
 } 
+/* 搜索区域 */
+#search{
+    height: 130px;
+}
+.search-wrapper{
+    position: relative;
+}
+.search-wrapper>img{
+    position:absolute;
+    top: 1px;
+    left: -45px;
+}
+#search-content{
+    width: 625px;
+    height: 40px;
+    margin: 0 auto;
+    padding-top: 38px; 
+}
+ #search-main{
+    border: 2px solid #ff0036;
+    position: relative;
+    /* top: 78px; */
+} 
+
+ #search-main input{
+    height:26px;
+    width: 483px;
+    padding: 5px 3px 5px 5px;
+    border: none; 
+    float: left;
+
+} 
+#search-main button{
+    width: 130px;
+    height: 36px;
+    color: #ffffff;
+    background: #ff0036;
+    font-size:18px;
+    border: none; 
+} 
+#search-list{
+    height: 16px;
+    width: 635px;
+    padding: 4px 0px 0px 0px;
+    /* text-align: center; */
+    position: relative;
+    left: -5px;
+}
+#search-list>a{
+    color: #999999;
+    height: 5px;
+    width: 67px;
+    padding: 0px 5px;
+    font-size: 14px;
+}
+#search-list>span{
+    color: #999999;
+    margin: 0px;
+    padding: 0px;
+}
+#search-list>.search-list-red{
+   color: #ff0036;
+}
+/* 分站入口 */
+#type{
+    border-bottom: 2px solid #ff0036;
+    height: 35px;
+    width:100% ;
+}
+.type-list{
+    float: left;
+    /* display: inline-block; */
+    padding: 0 8px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 16px;
+    color: #333;
+  }
+  .type-list>img{
+    /* float: left; */
+    width: 100px;
+    margin-top: 2px;
+  }
+  .type-list:first-child{
+    margin-left: 220px;
+  }
+  /* 菜单 */
+  #main{
+    position: relative;
+  }
+ #menu{
+    position: absolute;
+    width: 200px;
+    z-index: 9;
+ }
+ #menu-head{
+    height: 36px;
+    width: 200px;
+    background: #ff0036;
+    color: #ffffff;
+    text-align: center;
+    line-height: 36px;
+    position: absolute;
+    top: -36px;
+    z-index: 10;
+ }
+ #menu-wrapper{
+    background: rgb(0,0,0,0.55);
+    position: relative;
+ }
+ .menu-list{
+    height: 32px;
+    line-height: 32px;
+    color: #ffffff;
+ }
+ .menu-list>a{
+    color:#ffffff;
+    font-size: 14px;
+ }
+ .menu-list>i{
+    font-size: 16px;
+    margin: 0px 4px 0px 14px;
+ }
+ #container{
+    background: url("../imgs/bg.png");
+    background-position: center -207px;
+ }
+ .menu-list:hover{
+    background: #ffffff;
+   
+ }
+ .menu-list-pink:hover,
+ .menu-list-pink:hover>a{
+    color: #e54077;
+ }
+ .menu-list-blue:hover,
+ .menu-list-blue:hover>a{
+    color: #427def;
+ }
+ .menu-list-purple:hover,
+ .menu-list-purple:hover>a{
+    color: #6347ed;
+ }
+.menu-content{
+    width: 852px;
+    height: 512px;
+    background: #ffffff;
+    position: absolute;
+    left: 200px;
+    top: 0px;
+    font-size: 14px;
+    display: none;
+}
+.menu-content-left{
+    margin: 19px 30px;
+    /* width: 583px;
+    height: 462px;  */
+    float: left;
+}
+.menu-content-left-list>.menu-content-left-list-lihead{
+    float: left;
+    color: #333;
+   
+
+}
+.menu-content-left-list a{
+    float: left;
+    margin: 0px 0px 0px 13px;
+}
+.menu-content-left-list>p{
+    float: left;
+    height: 66px;
+    width: 493px;
+    margin-left: 30px;
+    border-bottom: 1px dashed rgb(0, 0, 0,0.1);
+}
+.hot{
+    color:#ff0036;
+}
+.menu-list:hover .menu-content{
+    display: block;
+}
+.menu-content-right{
+    float:right;
+    height: 480px;
+    width: 189px; 
+    background: #fafafafa;
+    /* padding: 10px; */
+}
+.menu-content-right>a{
+    float: left;
+    /* display: inline-block; */
+    /* 行级块元素会有一个回车换行，会导致图标竖向排列,把display改成一个浮动*/
+    width: 73px;
+    height: 37px;
+    margin: 0px 1px 1px 0px;
+    padding: 5px 10px;
+}
+.menu-content-right img{
+   width: 100%;
+}
+/* 轮播图 */
+#swiper-content>img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}  
+
+/* #swipper-content>img{
+    display: none;
+
+} */
+/* #swipper-content>.show{
+    display: block;
+}  */
+/* 轮播图：这是想让谁展示就让谁展示的方法 */
+#swipper-pointer{
+    position: absolute;
+    margin-left: -40.5px;
+    width: 84px;
+    left: 50%;
+    bottom: 20px;
+   
+}
+#swipper-pointer>li{
+    width:25px;
+    height: 5px;
+    float: left;
+    background: rgb(0, 0, 0);
+    margin-left: 3px;
+}
+#swipper-pointer>.active{
+    background: #ffffff;
+}

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        #container{
+            width:520px;
+            height: 280px;
+            margin:200px auto 0;
+            position: relative;
+            overflow: hidden;
+            /* 下面的#picture的宽度超出界限就让他隐藏可以达到左右滑动出现的效果 */
+        }
+        #container>#picture{
+            width: 2600px;
+            height: 100%;
+            /* 控制让父元素移动来进行图片展示 */
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            /* 因为是改变了picture 的left值，所以在此基础上修改left的动态变化 */
+            transition: left 1s ease;
+        }
+        #picture>img{
+           float: left;
+           width: 520px;
+        }
+        #picture>.show{
+            display: block;
+        }
+        #pointer{
+            position: absolute;
+            right: 30px;
+            bottom: 20px;
+        }
+        #pointer>li{
+            height: 20px;
+            width: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            list-style: none;
+            float: left;
+            margin: 0 5px;
+            /* 加了一个外边距 */
+            text-align: center;
+            line-height: 20px;
+            margin-right: 5px;
+         
+          
+        }
+        #pointer>.select{
+            background: red;
+        }
+        #left,
+        #right{
+            display: inline-block;
+            height: 50px;
+            width: 50px;
+            background:rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 50%;
+        }
+        #left{
+            left: 0px;
+        }
+       
+        #left::after{
+            content: '';
+            /* 内容不要忘记写 */
+            height: 20px;
+            width: 20px;
+            display: inline-block;
+            /* 是什么类型的元素不要忘记写 */
+            border-left: 5px solid white;
+            border-top: 5px solid white;
+            transform: rotate(-45deg);
+            position: relative;
+            left: 10px;
+            top: 10px;
+        }
+        #right{
+            right: 0px;
+        }
+        #right::after{
+            content: "";
+            height: 20px;
+            width: 20px;
+            display: inline-block;
+            border-top: 5px solid white;
+            border-right: 5px solid white;
+            transform: rotate(45deg);
+            position: relative;
+            top: 10px;
+            left: 10px;
+        }    
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="picture">
+            <img src="https://img.alicdn.com/simba/img/TB1oLmQnYj1gK0jSZFuSuwrHpXa.jpg" alt="">
+            <img src="https://img.alicdn.com/tfs/TB170_fnoD1gK0jSZFGXXbd3FXa-520-280.jpg_q90_.webp" alt="">
+            <img src="https://img.alicdn.com/simba/img/TB1CHOYn4D1gK0jSZFsSuvldVXa.jpg" alt="">
+            <img src="https://img.alicdn.com/simba/img/TB1cjnpmO_1gK0jSZFqSuwpaXXa.jpg" alt="">
+            <img src="https://img.alicdn.com/tfs/TB1vbTkna61gK0jSZFlXXXDKFXa-520-280.jpg_q90_.webp" alt="">
+        </div>
+        <ul id="pointer">
+            <li class="select">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <span id="left"></span>
+        <span id="right"></span>
+    </div>
+    <script>
+        var aLi = document.getElementsByTagName("li");
+        var oPicture = document.getElementById("picture");
+        var oRight = document.getElementById("right");
+        var oLeft = document.getElementById("left");
+
+        var tag = 0;
+
+        // 给li绑定点击事件
+        for(var i =0;i < aLi.length;i++){
+            aLi[i].index = i;
+            aLi[i].onclick = function(){
+                for(var j = 0;j < aLi.length;j++){
+                    aLi[j].className = "";
+                }
+                aLi[this.index].className = "select";
+                oPicture.style.left = -520 * this.index +"px"; 
+            }
+        }
+
+        // 给右侧按钮绑定点击事件
+        oRight.onclick = function(){
+            tag++;
+            if(tag >aLi.length){
+                tag = 0;
+            }
+            changslider();
+
+        }
+
+        // 给左侧按钮绑定点击事件
+        
+        oLeft.onclick = function(){
+            tag--;
+            if(tag<0){
+                tag = aLi.length-1;
+            }
+            changslider();
+        }
+
+        changslider = function(){
+            for(var j = 0;j<aLi.length;j++){
+                aLi[j].className = "";
+            }
+            aLi[tag].className = "select"
+            oPicture.style.left = -520 * tag +"px";
+
+        }
+
+    
+    
+    </script>
+       
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    hello world!
+    <!-- dom是一个文档对象模型document
+        dom树形模型
+        获取元素的常用方法：
+
+    -->
+    <div id="content">hello yes!</div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <ul id="wrapper">
+        <li>11</li>
+        <li>22</li>
+        <li>33</li>
+        <li>44</li>
+        <li>55</li>
+    </ul>
+    <input type="text" name = "school">
+    <input type="radio" name="sex" >nv
+    <input type="radio" name="sex">nan
+    <div name = "sex">哈哈</div>
+
+
+    <script>
+    // 通过id获取元素
+    var oDiv = document.getElementById("content");
+    console.log(oDiv);
+    // 通过标签名获取元素，返回的是一个html集合
+    // "类数组 "length属性代表类数组的长度，数组的其他方法再类数组中不适用
+    var ali = document.getElementsByTagName("li");
+    console.log(ali);
+    console.log(ali.length);
+    for(var i = 0; i < ali.length;i++){
+        console.log(ali[i]);
+    } 
+    // 只访问其中一部分的li
+    var owrapper = document.getElementById("wrapper");
+    var oli = owrapper.getElementsByTagName("li");
+    console.log(oli);
+   
+
+    // 通过name返回的是一个类数组，只有length属性，数组里的方法不能使用
+    var temp = document.getElementsByName("school");
+    console.log(temp);
+
+    var tep = document.getElementsByName("sex");
+    console.log(tep);
+
+  
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+  <select name="" id="list">
+      <option value="">1</option>
+      <option value="">2</option>
+      <option value="">3</option>
+  </select>
+  <input type="text" name="" id="main">
+  <script>
+        //   onchange 内容改变会触发这个方法
+    var oList = document.getElementById("list");
+    oList.onchange = function(){
+        console.log("change！！！");
+    }
+
+    var oMain = document.getElementById("main");
+    oMain.onchange = function(){
+        console.log(oMain.value);
+        // 这里是输入框里面的value（默认值）属性
+    }
+
+    oMain.onfocus = function(){
+        oMain.style.backgroundColor = "pink";
+        
+    }
+    oMain.onblur = function(){
+        oMain.style.backgroundColor = "white";
+        
+        }
+    oMain.onclick = function(e){
+        console.log(e);
+        console.log(e.clientX);
+        console.log(e.clientY);
+
+        
+    }
+
+
+  </script>
+</body>
+</html>

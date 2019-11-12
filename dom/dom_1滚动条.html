@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            height: 4000px;
+            width: 2000px;
+        }
+        #btn,
+        #btn1{
+            width: 100px;
+            height: 100px;
+            background: #f0036f;
+            color: white;
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+        }
+        #btn1{
+          bottom: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>hello world!!!</h1>
+    <div id="btn">回到顶部</div>
+    <div id="btn2">打开新页面</div>
+    <div id="btn1">click</div>
+    <script>
+        // scrollTo移动到哪一点
+        var Obtn = document.getElementById("btn");
+        Obtn.onclick = function(){
+            scrollTo(0,0);
+        }
+        // 从当前位置移动多少
+        var Obtn1 = document.getElementById("btn1");
+        Obtn1.onclick = function(){
+            scrollBy(100,100);
+        }
+        // open 在新窗口，打开指定链接的页面
+        var Obtn2 = document.getElementById("btn2");
+        Obtn2.onclick = function(){
+            open("https://www.baidu.com/");
+        }
+        // alert 和 confirm
+        // alert没有返回值
+        var a = alert("你好，旧时光！");
+        console.log(a);
+        // confirm弹框会出现确定和取消，确定就返回true，取消就返回false
+        var b = confirm("你确定吗？");
+        console.log(b);
+        
+
+
+    </script>
+</body>
+</html>

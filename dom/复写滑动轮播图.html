@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            height: 3000px;
+        }
+        #container{
+            width:520px;
+            height: 280px;
+            margin:200px auto 0;
+            overflow: hidden;
+            position: relative;
+        }
+        #container>#picture{
+            width: 2600px;
+            height: 280px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            transition: left 1s ease;
+        }
+        #picture>img{
+            float: left;
+            width: 520px;
+           
+        }
+        #pointer{
+            position: absolute;
+            right: 30px;
+            bottom: 20px;
+
+        }
+        #pointer>li{
+            width: 20px;
+            height: 20px;
+            list-style: none;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            text-align: center;
+            line-height: 20px;
+            float: left;
+            margin-right: 5px;
+        }
+        #pointer>.select{
+            background: red;
+        }
+        #left,
+        #right{
+            display: inline-block;
+            height: 50px;
+            width: 50px;
+            background: rgba(0,0,0,0.5);
+            position: absolute;
+            top: 50%;
+            margin-top: -25px;
+            /* 这里对于向上移动不是很熟练 */
+            /* 如何再让他向上走25px ?????????? 答：margin-top: -25px;*/
+
+        }
+        #left{
+            left: 0px;
+        }
+        #left::after{
+            content:"";
+            display: inline-block;
+            height: 20px;
+            width: 20px;
+            border-left: 5px solid white;
+            border-top: 5px solid white;
+            transform: rotate(-45deg);
+            position: relative;
+            left:10px;
+            top: 10px;
+        }
+        #right{
+            right: 0px;
+        }
+        #right::after{
+            content: "";
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-right: 5px solid white;
+            border-top: 5px solid white;
+            transform: rotate(45deg);
+            position: relative;
+            top: 10px;
+            left: 10px;
+        }
+      
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="picture">
+          <img src="https://img.alicdn.com/tfs/TB16EfYn.Y1gK0jSZFCXXcwqXXa-520-280.jpg_q90_.webp" alt="">
+          <img src="https://img.alicdn.com/simba/img/TB1Hzy1olv0gK0jSZKbSuvK2FXa.jpg" alt="">
+          <img src="https://img.alicdn.com/simba/img/TB1cjnpmO_1gK0jSZFqSuwpaXXa.jpg" alt="">
+          <img src="https://img.alicdn.com/simba/img/TB1QJCMn7L0gK0jSZFxSutWHVXa.jpg" alt="">
+          <img src="https://img.alicdn.com/imgextra/i2/3079263591/O1CN01LeyFfD1cOiqVdZg7j_!!3079263591.jpg_q90_.webp" alt="">
+        </div>
+        <ul id="pointer">
+            <li class="select">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <span id="left"></span>
+        <span id="right"></span>
+    </div>
+    <script>
+    var aLi = document.getElementsByTagName("li");
+    var oPicture = document.getElementById("picture");
+    var oRight = document.getElementById("right");
+    var oLeft = document.getElementById("left");
+    // 用tag来检测点击记数
+    var tag = 0;
+
+    // 给li绑定点击事件
+    for(var i = 0;i<aLi.length;i++){
+        aLi[i].index = i;
+        aLi[i].onclick = function(){
+           for(var j = 0;j<aLi.length;j++){
+               aLi[j].className = "";
+           }
+           aLi[this.index].className = "select";
+           oPicture.style.left = -520 * this.index + "px";
+        }
+    }
+    // 写changeslider方法，减少代码量
+    changslider = function(){
+        for(var j = 0;j<aLi.length;j++){
+            aLi[j].className = "";
+        }
+        aLi[tag].className = "select";
+        oPicture.style.left = -520 * tag +"px";
+    }
+
+    // 给右侧按钮绑定点击事件
+    oRight.onclick = function(){
+        tag++;
+        if(tag > aLi.length){
+            tag = 0;
+        }
+        changslider();
+    }
+
+    // 给左侧按钮绑定点击事件
+    oLeft.onclick = function(){
+        tag--;
+        if(tag < 0){
+            tag = aLi.length - 1;
+        }
+        changslider();
+    }
+    </script>
+</body>
+</html>

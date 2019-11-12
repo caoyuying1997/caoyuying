@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+         https 相对安全
+         http 不安全
+         图片路径有可能没有协议，会按照当前访问网址进行匹配
+         安全环境下访问一个安全会报错，不安全环境下访问安全是可以的
+         所以图片地址会用//来访问，各种协议都可以匹配
+         
+    -->
+    <button id="btn">loaction</button>
+    <script>
+        var oBtn = document.getElementById("btn");
+        oBtn.onclick = function(){
+            // location.href = 'http://didichuxing.com'
+            // href跳转至新页面，不保留原页面
+            // location.replace('http://didichuxing.com');
+            // replace不产生历史记录
+            location.assign("https://www.baidu.com");
+            // assign 与 href的作用相同
+
+
+        }
+    </script>
+</body>
+</html>

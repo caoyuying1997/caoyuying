@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var n= new Date();
+        var s;
+        var a,b,c,d,e,f,g,k;
+        s =["星期日","星期一","星期二","星期三","星期四","星期五","星期六"]
+         a = n.getFullYear();
+         b = n.getMonth() + 1;
+         c = n.getDate();
+         d = n.getHours() + 1;
+         e = n.getMinutes() +1;
+         f = n.getSeconds() + 1;
+         k = n.getDay();
+        document.write("现在是"+a+"年"+b+"月"+c+"日"+d+"时"+e+"分"+f+"秒"+"("+s[k] +")");
+        document.write("，欢迎您的到访！")
+
+
+    </script>
+</body>
+</html>

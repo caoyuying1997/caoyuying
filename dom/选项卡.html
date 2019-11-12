@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    #container{
+        width: 300px;
+        margin: 50px auto;
+        /* 让整个container居中展示 */
+    
+    }
+    #menu{
+       width: 300px;
+       height: 50px;
+       /* 给ul设置高度来清除浮动 */
+    }
+    #menu>li{
+        width: 100px;
+        height: 50px;
+        background: #ffffff;
+        color: #ff8903;
+        list-style: none;
+        float:left;
+        text-align: center;
+        line-height: 50px;
+    }
+    #menu>.active{
+        background-color: #ff8903;
+        color: #ffffff;
+    }
+    #content{
+        width :100%;
+        height: 300px;
+        position: relative;
+    }
+    #content>div{
+        height: 100%;
+        width: 100%;
+        color: #ff8903;
+        background: #fff;
+        /* display: none; */
+        /* 用来展示的两种方法，可以用定位，也可以用透明度 */
+        position:absolute;
+        opacity: 0;
+        top: 0;
+        left: 0;
+    }
+    #content>.show{
+        /* display: block; */
+        opacity: 1;
+        transition: opacity 1s ease;
+        color: #fff;
+        background: #ff8903;
+    }
+    </style>
+</head>
+<body>
+    <div id="container">
+       <ul id="menu">
+          <li class="active">菜单一</li>
+          <li>菜单二</li>
+          <li>菜单三</li>
+       </ul>
+       <div id="content">
+           <div class="show">内容一</div>
+           <div>内容二</div>
+           <div>内容三</div>
+       </div>
+    </div>
+    <script>
+        var oMenu = document.getElementById("menu");
+        var ali = oMenu.getElementsByTagName('li');
+
+        var oContent = document.getElementById("content");
+        var oDiv = oContent.getElementsByTagName("div");
+        for(var i= 0;i < ali.length;i++){
+            ali[i].index = i;
+            // 给li增加一个自定义属性值，等于数组索引下标
+            ali[i].onclick = function(){
+                // console.log(this.index);
+                // 表示触发this事件
+
+                // 给所有元素都去掉class
+                for(var j =0;j<ali.length;j++){
+                    ali[j].className = "";
+                    oDiv[j].className = "";
+                }
+                ali[this.index].className = "active";
+                oDiv[this.index].className = "show";
+                // 问题:为什么要使用this指针，不使用为什么会产生undefined
+                // ali[i].className = "menu"; undefined 这是因为在绑定点击事件的时候i= 3产生，但是数组长度并没有i= 3这一项
+            }
+            // i=3
+        }
+
+
+    
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // setTimeout 和 setInterval
+    // setTimeout 是暂停多少秒之后执行
+    // setInterval 每隔一段时间输出一下
+    var timer1 = setTimeout(function(){
+        console.log(timer1)
+
+    },2000)
+    // clearTimeout这个是清除记时器
+    clearTimeout(timer1);
+    // timer没有特别的含义，是一个number类型的数
+    // setInterval示例
+    var i= 60;
+    var timer2 = setInterval(function(){
+        console.log(i+"秒可再次发送");
+        i--;
+        if (i <= 50){
+            clearInterval(timer2);
+        }
+    },200)
+    // 单线程和多线程
+    // 单线程，一个群里面只聊一个话题（按顺序执行，js是单线程）
+    // 多线程，一个群里面聊多个话题
+
+    // 同步和异步
+    // 同步：按顺序执行事件（去星巴克门店点咖啡）
+    // 异步：（手机下单，去门店点咖啡）
+    setTimeout(function(){
+        console.log(1)
+
+    },0)  //毫秒数设置为0
+    console.log(2);
+    console.log(3);   //2 3 1
+    // setTimeout是一个异步方法，先把他放到一个任务队列里面，然后主线程执行完了之后，再看他时间到没到，如果到了，那么就执行
+
+
+    // 函数去抖
+    // 百度页面输出东西的时候，后面会有一些联想查询，每隔几秒会调用查询方法，控制几秒之后再去请求，减少并发数
+    // 知识补充，抗压测试
+
+  
+
+    
+
+    </script>
+</body>
+</html>

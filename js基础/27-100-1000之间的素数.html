@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      var num = 0;
+      var i,j;
+      for(i = 100;i <= 1000; i++){
+          var tag = true;
+          for( j = 2;j <i;j++){
+              if(i % j == 0){
+                  tag = false;
+              }
+          }
+          if(tag){
+              document.write(i + " ");
+              num ++;
+              if(num % 6 == 0){
+                  document.write("<br/>");
+              }
+            //   用tag作为一个标记，用num控制6个一输出
+          }
+      }
+    </script>
+</body>
+</html>

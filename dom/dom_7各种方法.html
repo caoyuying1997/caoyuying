@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #native{
+            background: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div id="num1">单击事件</div>
+    <div id = "num2">双击事件</div>
+    <input type="text">
+    <input type="text" id="native">
+    <div id="main">鼠标点击事件</div>
+    <script>
+        // onclick单击事件
+        var oNum1 = document.getElementById("num1");
+        oNum1.onclick = function(){
+            alert("曹玉莹最棒哦！");
+        }
+        // 双击事件
+        var Onum2 = document.getElementById("num2")
+        Onum2.ondblclick = function() {
+        alert('双击666');
+        }
+        // 获得焦点
+        var oInput = document.getElementsByTagName("input")[0];
+        // 这里注意类数组问题[0]，因为TagName是类数组
+        console.log(oInput);
+        oInput.onfocus = function(){
+            oInput.style.backgroundColor = "red";
+        }
+        // 失去焦点
+        oInput.onblur = function(){
+            oInput.style.backgroundColor = "pink";
+        }
+        
+        // 利用js对样式进行修改
+        var Onative = document.getElementById("native");
+        Onative.onfocus = function(){
+            Onative.className = "native";
+        }
+        Onative.onblur = function(){
+            Onative.className = "";
+            // 失去焦点不生效！！！！！！！！！
+        }
+
+        // 事件句柄，鼠标操作
+        var oMain = document.getElementById("main");
+        // 鼠标按下
+        oMain.onmousedown = function(){
+            console.log("onmousedown")
+        }
+        // 鼠标弹起
+        oMain.onmouseup = function(){
+            console.log("onmouseup");
+        }
+        // 鼠标移动
+        oMain.onmousemove = function(){
+            console.log("onmousemove");
+        }
+        // 鼠标移开
+        oMain.onmouseover = function(){
+            console.log("鼠标划入");
+        }
+        oMain.onmouseout = function(){
+            console.log("鼠标移出");
+        }
+    </script>
+</body>
+</html>

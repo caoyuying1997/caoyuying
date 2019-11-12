@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        ul{
+            display: none;
+            /* 点击时是ul的显示和隐藏 */
+        }
+       
+        li{
+            width: 100px;
+            height: 40px;
+            background: #cccccc;
+            color: white;
+            border: 1px solid pink;
+            text-align: center;
+            line-height: 40px;
+    
+        }
+        h1{
+            width: 100px;
+            height: 40px;
+            background:red;
+            color: white;
+            border: 1px solid pink;
+            text-align: center;
+            line-height: 40px;
+            font-size : 16px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        
+        <h1>第一阶段</h1>
+        <ul>
+            <li class="menu">HTML</li>
+            <li class="menu">CSS</li>
+            <li class="menu">JS</li>
+        </ul>
+        <h1>第二阶段</h1>
+        <ul>
+            <li class="menu">ES6</li>
+            <li class="menu">VUE</li>
+            <li class="menu">React</li>
+        </ul>
+    </div>
+    <script>
+        var aH = document.getElementsByTagName("h1");
+        var aUl = document.getElementsByTagName("ul");
+
+        // 给每一个标题(循环)框绑定点击事件
+        for (var i =0;i <aH.length;i++){
+            aH[i].index = i;
+            aH[i].tag = false;
+
+            // 绑定点击事件
+            aH[i].onclick = function(){
+                if(this.tag == false){
+                    aUl[this.index].style.display = "block";
+                }
+                else{
+                    aUl[this.index].style.display = "none";
+                }
+                // 给tag加入了this后就表示两个标题点哪个哪个tag就变了
+                this.tag = !this.tag;
+            }
+
+        }
+     
+    </script>
+</body>
+</html>

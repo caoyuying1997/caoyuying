@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        li{
+            width: 100px;
+            height: 40px;
+            background: #cccccc;
+            color: white;
+            border: 1px solid pink;
+            text-align: center;
+            line-height: 40px;
+            
+        }
+        .biaoti{
+            background: red;
+        }
+        .menu{
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        
+        <ul id="first">
+            <li class="biaoti">第一阶段</li>
+            <li class="menu">HTML</li>
+            <li class="menu">CSS</li>
+            <li class="menu">JS</li>
+        </ul>
+        <ul id="second">
+            <li class="biaoti">第二阶段</li>
+            <li class="menu">ES6</li>
+            <li class="menu">VUE</li>
+            <li class="menu">React</li>
+        </ul>
+    </div>
+    <script>
+        var oBiaoti = document.getElementsByClassName("biaoti");
+        var oMenu = document.getElementsByClassName("menu");
+        var one = [];
+        var two = [];
+        one = menu.slice[0,2];
+      
+
+        for(var i = 0;i<oBiaoti.length;i++){
+            oBiaoti[i].index = i;
+            var tag1 = 0;
+            oBiaoti[i].onclick = function(){
+                if(tag1 == 0){
+                   one.style.display = "block";
+                    tag1 = !tag1
+                }else{
+                    one.style.display = "none";
+                    tag1 = !tag1
+                }
+                
+            }
+
+
+        }
+
+    
+    
+    </script>
+</body>
+</html>

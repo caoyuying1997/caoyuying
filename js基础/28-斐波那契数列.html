@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 递归算法
+         function fun(x){
+            if (x <= 2){
+                return 1;
+            }
+            else{
+                return fun(x- 1) +fun(x-2);
+            }
+        }
+         for(var temp = 1;temp < 100;temp++){
+            document.write(fun(temp));
+        }
+        // var temp = prompt("请输入一个数字：")*1;
+        // document.write(fun(temp));
+      
+     
+        
+        //  迭代算法
+        // function fun(x){
+        //     if (x <= 2){
+        //         return 1;
+        //     }
+        //     var a1 = 1,a2 = 1,a3;
+        //     for( var i = 3;i <=n;i++){
+        //         a3 = a1+a2;
+        //         a1 = a2;
+        //         a2 = a3;
+        //     }
+        //     return a3;
+        // }
+    
+    </script>
+</body>
+</html>

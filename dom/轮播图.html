@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            height: 3000px;
+        }
+        #container{
+            width: 520px;
+            height: 280px;
+            margin: 100px auto 0;
+            position: relative;
+        }
+        #container>#picture{
+            width: 100%;
+            height: 100%;
+        }
+        #picture>img{
+            display: none;
+        }
+        #picture>.show{
+            display: block;
+        }
+        #pointer>li{
+            width: 20px;
+            height: 20px;
+            background: rgba(0,0,0, 0.5);
+            color: white;
+            list-style: none;
+            float: left;
+            margin-right: 10px;
+            text-align: center;
+            line-height: 20px;
+            position: relative;
+            bottom:30px;
+            left:340px;
+        }
+        #pointer>.select{
+            background: red;
+        }
+        #left,
+        #right{
+            display: inline-block;
+            height: 50px;
+            width: 50px;
+            background: rgba(0,0,0, 0.5);
+            position: absolute;
+            top: 50%;
+        }
+        #left{
+            left: 0px;
+        }
+        #left::after{
+            content: "";
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            border-left: 5px solid white;
+            border-top: 5px solid white;
+            transform: rotate(-45deg);
+            position: absolute;
+            top: 10px;
+            right: 5px;
+        }
+        #right{
+          right: 0px;
+        }
+        #right::after{
+            content: "";
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            border-left: 5px solid white;
+            border-top: 5px solid white;
+            transform: rotate(135deg);
+            position: absolute;
+            top: 10px;
+            left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 基础轮播图包含五张图片，以及五个按钮，实现效果是，点击按钮可以完成换图片的功能 ，左右箭头切换功能-->
+    <div id="container">
+        <div id="picture"> 
+            <img src="https://img.alicdn.com/simba/img/TB1oLmQnYj1gK0jSZFuSuwrHpXa.jpg" alt="" class = "show">
+            <img src="https://img.alicdn.com/simba/img/TB1nOBCnSf2gK0jSZFPSutsopXa.jpg" alt="">
+            <img src="https://img.alicdn.com/tfs/TB1vbTkna61gK0jSZFlXXXDKFXa-520-280.jpg_q90_.webp" alt="">
+            <img src="https://img.alicdn.com/simba/img/TB1CHOYn4D1gK0jSZFsSuvldVXa.jpg" alt="">
+            <img src="https://img.alicdn.com/tfs/TB170_fnoD1gK0jSZFGXXbd3FXa-520-280.jpg_q90_.webp" alt="">
+        </div>
+        
+        <ul id="pointer">
+            <li class="select">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <span id="left"></span>
+        <span id="right"></span>
+    </div>
+   <script>
+    //点击每一个让他的图片展示出来，点击li然后显示图片img
+    // 给每一个li绑定点击事件，这里需要用for循环来完成
+    var aLi = document.getElementsByTagName("li");
+    var aImg = document.getElementsByTagName("img");
+    var oRight = document.getElementById("right");
+    var oLeft = document.getElementById("left");
+    
+    var tag = 0;
+
+    // 给li绑定点击事件
+    for(var i = 0;i<aLi.length;i++){
+        aLi[i].index = i;
+        aLi[i].onclick = function(){
+            for(var j = 0;j<aLi.length;j++){
+                aLi[j].className = "";
+                aImg[j].className = "";
+            }
+            aLi[this.index].className = "select";
+            aImg[this.index].className = "show";
+            
+        }
+        
+    }
+
+    // 给右侧案件绑定点击事件
+    oRight.onclick = function(){
+       tag++;
+       if(tag >aLi.length){
+           tag = 0;
+       }
+       for(var j = 0;j<aLi.length;j++){
+           aLi[j].className = "";
+           aImg[j].className = "";
+       }
+       aLi[tag].className = "select";
+       aImg[tag].className = "show";
+    }
+
+
+    // 给做左侧按钮绑定点击事件
+    oLeft.onclick = function(){
+        tag--;
+        if(tag < 0){
+            tag = aLi.length-1;
+        }
+       for(var j = 0;j<aLi.length;j++){
+           aLi[j].className = "";
+           aImg[j].className = "";
+       }
+       aLi[tag].className = "select";
+       aImg[tag].className = "show";
+    }
+
+
+
+    var changeslider = function(){
+        for(var j = 0;j<aLi.length;j++){
+            aLi[j].className = "";
+            aImg[j].className = "";
+        }
+        aLi[tag].className = "select";
+        aImg[tag].className = "show";
+    }
+    // 可以直接封装成函数更加简便 对li绑定点击事件时，可以领tag = this.index 这样也就可以级需使用封装号的changeslider函数了
+
+
+   </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      var arr1 = "join".split("");
+      console.log(arr1);
+    //  ["j", "o", "i", "n"]
+      var arr2 = arr1.reverse();
+    // reverse后会改变原来的数组
+      console.log(arr2);
+    //  ["n", "i", "o", "j"]
+       var arr3 = "jones".split("");
+       console.log(arr3);
+    //  ["j", "o", "n", "e", "s"]   
+      arr2.push(arr3)
+    // push是向元素末尾添加一个或多个元素
+    // ["n", "i", "o", "j",["j", "o", "n", "e", "s"]],末尾追加进来一个数组；
+      console.log(arr1.length+" "+arr1.slice(-1));
+      console.log(arr2.length+" "+arr2.slice(-1));
+
+      
+
+    </script>
+</body>
+</html>

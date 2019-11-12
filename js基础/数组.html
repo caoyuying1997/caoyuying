@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr1 = [1,2,3,4,5]
+        var arr2 = arr1.slice(0,2)
+        console.log(arr1);//  1,2,3,4,5
+        console.log(arr2);//  1,2,
+
+        var arr3  = [5,4,3,2,1]
+        var arr4 = arr3.splice(0,3,11,12,13);
+        console.log(arr3);// 11,12,13,2,1
+        console.log(arr4);// 5,,4,3
+
+        var b4 = [2,1,4,5];
+        var b5 = b4.reverse();
+        console.log(b4);
+        console.log(b5);
+
+        // sort() 对数组排序 会改变原数组 
+        // sort() 如果不传值 会按照字典序进行排列
+        function s1 (a,b){
+            return b - a;  //降序序pailie
+        }
+        var arr5 = [3,4,98,5,6,20,1];
+        a1 = arr5.sort(s1);
+        console.log(arr5)
+        console.log(a1);
+
+        // toString 将数组转换成字符串 中间用","分割
+        var a = ["hello"]
+        var b = ["world"]
+        var c = a.concat(b)
+        console.log(c);
+        var d = c.toString();
+        console.log(d)
+        
+        // join 将数组转换称字符串 可以用指定字符分割
+        var e = c.join("!!!!")
+        console.log(e);
+
+    </script>
+</body>
+</html>

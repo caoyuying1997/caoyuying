@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>这里是页面一</h1>
+    <a href="./dom_3.1.html">点击进入页面二</a>
+    <button id="btn">向前跳转两步</button>
+    <button id="btn1">进入下一个页面</button>
+    <script>
+        // forward()进入下一个页面
+        // back()返回上一个页面
+        // go(+number or -number),可进入可返回页面
+        // history是一个对象，它提供了很多的内置方法
+        // 页面一点击的时候会进入页面er
+        var oBtn = document.getElementById("btn");
+        oBtn.onclick = function(){
+            history.go(2);
+        }
+        var oBtn1 = document.getElementById("btn1");
+        oBtn1.onclick = function(){
+            history.forward();
+        }
+    </script>
+</body>
+</html>

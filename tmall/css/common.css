@@ -6,13 +6,28 @@
     /*清除页面默认样式  */
 }
 body{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: tahoma,arial;
+    height: 3000px;
+}
+a{
+    text-decoration: none;
+}
+li{
+   list-style: none;
+}
+.clear::after{
+    content: "";
+    display: block;
+    clear: both;
 }
 /* 主内容区域 */
 .wrapper{
     width:1230px;
     margin: 0 auto;
-    height: 100%;
+    /*高度不写是被内容自动撑开的 */
+    height: 100%; 
+     /* height：100%是为了继承父元素wrapper的高度，避免后面因为nav_slogan左浮动造成的父元素塌陷问题 */
+     /*这个类是公共样式，后面所有有需要居中展示的话，就加上这个类就行，不然没写一个元素就要单独写一下样式 */
 }
 /* 导航条 */
 #nav{
@@ -21,18 +36,17 @@ body{
     border-bottom: 1px solid #e5e5e5 ;
     font-size: 12px;
     color: #999;
+    background: #f2f2f2;
 
 }
-#nav_slogan{
+ #nav_slogan{
     float: left;
-    height: 100%;
+    /* 这个float注意联系右侧导航栏浮动理解 
+    (理解后)设置左浮动后空间会被释放,所以右侧导航栏进行有浮动后才能串上来*/
+    height: 100%;  
     line-height: 32px;
     /* 当行高等于元素高度时，文本就是垂直居中 */
-}
-a{
-    text-decoration: none;
-
-}
+} 
 #nav_slogan>span{
    margin-right: 10px;
 }
@@ -42,4 +56,125 @@ a{
 }
 #nav_slogan>a:hover{
     color: #ff0036;
+}
+.nav_menu_list{
+    float:left;
+    height: 100%;
+    padding-right: 14px;
+    position: relative;
+    line-height: 32px;
+    /* li 没有加宽度是别被内容撑开的，后面再给.nav_menu_list_link>a:hover加左右边框的时候，就会产生一个闪动的问题 */
+}
+#nav_menu{
+    float:right;
+    height: 100%;
+}
+.nav_menu_list>a{
+    color: #999999;
+    display: inline-block;
+    height: 100%;
+    line-height: 32px; 
+}
+.nav_menu_list_link{
+   
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent; 
+    /* 用transparent透明边框解决产生的闪动问题 */
+}
+#nav_menu>.nav_menu_list>a:hover{
+    color: #ff0036;
+}
+#nav_menu>.nav_menu_list_link>a:hover{
+    background: #ffff;
+    text-decoration: underline;
+    /* border-left: 1px solid #f2f2f2;
+    border-right: 1px solid #f2f2f2; */
+    /* 边框加在这里会产生一个闪动的问题 */
+}
+#nav_menu>.nav_menu_list_link:hover .nav_menu_list_inner{
+    display: block;
+ /* 这里面为什么用menu_list_link:hover而不是a:hover！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！ */
+}
+#nav_menu>.nav_menu_list_web>a:hover{
+    color: #999999;
+}
+#nav_menu>.nav_menu_list .iconfont{
+    color:#ff0036;
+    font-size: 12px;
+}
+.nav_menu_list .nav_menu_list_inner{
+    background: #ffff;
+    padding: 8px 10px;
+    border: 1px #f2f2f2 solid;
+    border-top: none;
+    position: absolute;
+    top: 32px;
+    width: 80px;
+    display: none;
+   
+}
+.nav_menu_list_inner a{
+    display: inline-block;
+    color: #999;
+    line-height: 30px; 
+    width:80px;
+    height: 40px;
+    text-align: center;
+     /*  想让下拉菜单文字居中展示*/ */
+    
+}
+.nav_menu_list_inner a:hover{
+    color:#ff0036;
+    text-decoration: underline;
+}
+#nav_menu .nav_menu_list_arrow{
+    display: block;
+    height: 0px;
+    width: 0px;
+    border:5px solid transparent;
+    border-top-color:#999;
+    float: right;
+    margin-top: 12px;
+    margin-left: 4px;
+    
+}
+#nav_menu>.nav_menu_list_link:hover .nav_menu_list_arrow{
+    transform: rotate(180deg);
+    margin-top: 12px;
+    transition: all 0.5s ease;
+}
+#nav_menu_list_phone{
+    position: absolute;
+    /* 不想被子元素撑开就用绝对定位*/
+    top: 32px;
+    left: 0px; 
+    border: 1px #f2f2f2 solid; 
+     display: none; 
+    text-align: center;
+} 
+#nav_menu_list_phone_qr{
+    height: 175px;
+    width: 175px;
+    background: url('../imgs/erweima.png') 0 0 no-repeat;
+    /* 0，0表示左上角
+    no-repeat不重复 */
+}
+#nav_menu_list_phone img{
+    widows: 145px;
+    height: 35px;
+
+}
+.nav_menu_list:hover #nav_menu_list_phone{
+    display: block; 
+}
+#nav_menu_list_phone span{
+    display: inline-block;
+    width: 0px;
+    height: 0px;
+    border: 4px solid transparent;
+    border-bottom-color:#ffff;
+    position: absolute;
+    left:30px;
+    top:-8px;
+
 }

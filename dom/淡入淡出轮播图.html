@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        #container{
+            width:520px;
+            height: 280px;
+            margin:200px auto 0;
+            position: relative;
+            overflow: hidden;
+            /* 下面的#picture的宽度超出界限就让他隐藏可以达到左右滑动出现的效果 */
+        }
+        #container>#picture{
+            width: 2600px;
+            height: 100%;
+            /* 控制让父元素移动来进行图片展示 */
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            /* 因为是改变了picture 的left值，所以在此基础上修改left的动态变化 */
+            transition: left 1s ease;
+        }
+        #picture>img{
+           /* float: left; */
+           width: 520px;
+           position: absolute;
+           left: 0px;
+           top: 0px;
+           transition: opacity 1s ease;
+           
+        }
+        #picture>.show{
+            display: block;
+        }
+        #pointer{
+            position: absolute;
+            right: 30px;
+            bottom: 20px;
+            width: 300px;
+            height: 10px;
+            left: 50%;
+            margin-left:-150px;
+        }
+        #pointer>li{
+            height: 10px;
+            width: 50px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            list-style: none;
+            float: left;
+            margin: 0 5px;
+            /* 加了一个外边距 */
+            text-align: center;
+            line-height: 20px;
+            margin-right: 5px;
+
+          
+        }
+        #pointer>.select{
+            background: white;
+        }
+       
+    </style>
+</head>
+<body>
+    <div id="container">
+            <div id="picture">
+                <img src="https://img.alicdn.com/simba/img/TB1oLmQnYj1gK0jSZFuSuwrHpXa.jpg" alt="">
+                <img src="https://img.alicdn.com/tfs/TB170_fnoD1gK0jSZFGXXbd3FXa-520-280.jpg_q90_.webp" alt="">
+                <img src="https://img.alicdn.com/simba/img/TB1CHOYn4D1gK0jSZFsSuvldVXa.jpg" alt="">
+                <img src="https://img.alicdn.com/simba/img/TB1cjnpmO_1gK0jSZFqSuwpaXXa.jpg" alt="">
+                <img src="https://img.alicdn.com/tfs/TB1vbTkna61gK0jSZFlXXXDKFXa-520-280.jpg_q90_.webp" alt="">
+            </div>
+            <ul id="pointer">
+                <li class="select"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+    </div>
+    <script>
+        var aLi = document.getElementsByTagName("li");
+        var aImg = document.getElementsByTagName("img");
+        var oCon = document.getElementById("container");
+        var tag = 0;
+        var Timer;
+
+
+        // 鼠标划入
+        for (var i =0;i<aLi.length;i++){
+            aLi[i].index = i;
+            aLi[i].onmouseover = function(){
+                aLi[i] = tag;
+                for(var j = 0;j<aLi.length;j++){
+                    aLi[j].className = "";
+                    aImg[j].style.opacity = 0;
+                }
+                aLi[this.index].className = "select";
+                aImg[this.index].style.opacity = 1;
+            }
+        }
+        
+        // 自动滑动—>记时器
+        Timer = setInterval(function(){
+            tag++;
+            if (tag >aLi.length - 1){
+                tag = 0;
+            }
+            changeslider();
+
+        },1000)
+
+        // 封装changeslider函数
+        var changeslider = function(){
+            for(var j = 0;j<aLi.length;j++){
+                aLi[j].className = "";
+                aImg[j].style.opacity = 0;
+            }
+            aLi[tag].className = "select";
+            aImg[tag].style.opacity = 1;
+        }
+
+        // 划入oCon清除计时器
+        oCon.onmouseover = function(){
+            clearInterval(Timer);
+        }
+        
+        // 划出oCon开启开启计时器
+        oCon.onmouseout = function(){
+            Timer = setInterval(function(){
+                tag++;
+                if (tag >aLi.length - 1){
+                    tag = 0;
+                }
+                changeslider();
+            },1000)
+        }
+        
+
+    </script>
+
+    
+</body>
+</html>

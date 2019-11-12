@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        #container{
+            width: 400px;
+            height: 300px;
+            border: 5px solid aqua;
+            margin: 100px auto ;
+            overflow: hidden;
+            position: relative;
+        }
+        #container>#square{
+           width: 500px; 
+           height: 120px;
+           position: absolute;
+           left: 0px;
+           top: 0px;
+        }
+        #square>span{
+            display: inline-block;
+            height:120px;
+            width: 120px;
+            margin-right:5px;
+            background:pink;
+            color: white;
+            font-size: 20px;
+            float: left;
+            text-align: center;
+            line-height: 120px;
+            transition: right 1s ease;
+            
+        }
+        #left,
+        #right{
+            width: 80px;
+            height:30px;
+            background: pink;
+            color:white;
+            font-size: 15px;
+            text-align: center;
+            line-height: 30px;
+            position: absolute;
+            bottom: 20px;
+        }
+        #left{
+           left: 110px;
+        }
+        #right{
+            right:110px;
+        }
+    </style>
+    
+</head>
+<body>
+    <div id = "container">
+        <div id="square">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+        </div>
+        <button id="left">left</button>
+        <button id="right">right</button>
+
+    </div>
+    <script>
+    
+    var oSquare = document.getElementById("square")
+    var oRight = document.getElementById("right");
+    var oLeft = document.getElementById("left");
+    var Timer;
+
+    // 把1234repeat一遍
+    oSquare.innerHTML += oSquare.innerHTML;
+    oSquare.style.width = oSquare.offsetWidth * 2 +'px';
+
+   var speed = -20;
+    // 理解left right居左居右正负的含义   
+   setInterval(function(){
+       oSquare.style.left = oSquare.offsetLeft +speed+ "px";
+
+       if(oSquare.offsetLeft < - oSquare.width/2){
+           oSquare.style.left = 0;
+       }
+      if(oSquare.offsetLeft > 0){
+           oSquare.style.left = -oSquare.width/2;
+       }
+   },200)
+
+    //给left绑定点击事件 
+    oLeft.onclick = function(){
+        speed = -20;
+    }  
+    oRight.onclick = function(){
+        speed = 20;
+    }
+
+
+    
+   
+    
+
+
+    </script>
+</body>
+</html>

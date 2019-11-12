@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        #small{
+            height: 400px;
+            width: 400px;
+            position: relative;
+            float: left;
+        }
+        #small>img{
+            height: 100%;
+            width: 100%;
+        }
+        #small>#drag{
+            height: 200px;
+            width: 200px;
+            background: rgba(255, 255,255, 0.6);
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            display: none;
+        }
+        #big{
+            height: 400px;
+            width: 400px;
+            overflow: hidden;
+            float: left;
+            display:none;
+            position: relative;
+        }
+        #big>img{
+            height: 800px;
+            width: 800px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+    
+    </style>
+</head>
+<body>
+    <div id="small">
+        <img src="../imgs/DSC_5906.JPG" alt="">
+        <div id="drag"></div>
+    </div>
+    <div id="big">
+        <img src="../imgs/DSC_5906.JPG" alt="">
+    </div>
+    <script>
+        var oSmall = document.getElementById("small");
+        var oDrag = document.getElementById("drag");
+        var oBig = document.getElementById("big");
+        var aImg = oBig.getElementsByTagName("img")[0];
+        
+
+        // 划入small事件
+        oSmall.onmouseover = function(){
+
+            // 这是显示小方块和big
+            oDrag.style.display = "block";
+            oBig.style.display = "block";
+
+            // 这是用来移动small中小方块，确定上下左右边界
+            oDrag.onmousemove = function(event){
+                oDrag.style.left = event.clientX - oDrag.offsetWidth / 2 + "px";
+                oDrag.style.top = event.clientY - oDrag.offsetHeight / 2 + "px";
+                
+                //确定移动最大边界
+                var maxWidth = oSmall.offsetWidth - oDrag.offsetWidth;
+                var maxHeight = oSmall.offsetHeight - oDrag.offsetHeight;
+
+                // 上下左右边界判定条件
+                if(oDrag.offsetLeft <= 0){
+                    oDrag.style.left = 0;
+                }
+                if(oDrag.offsetLeft > maxWidth){
+                    oDrag.style.left = maxWidth +"px";
+                }
+                if(oDrag.offsetTop <=  0){
+                    oDrag.style.top = 0;
+                }
+                if(oDrag.offsetTop > maxHeight){
+                    oDrag.style.top = maxHeight +"px";
+                }
+
+                //确定img在big中的最大移动距离 
+                var maxBigwidth = aImg.offsetWidth - oBig.offsetWidth;
+                var maxBigheight = aImg.offsetHeight - oBig.offsetHeight; 
+
+                // 因为big和small的比例是相同的，所以可移动的距离也应该相同
+                var perx = maxBigwidth / maxWidth;
+                var pery = maxBigheight / maxHeight;
+                console.log(oSmall.offsetLeft,perx);
+
+                aImg.style.left = -oDrag.offsetLeft * perx +"px";
+                aImg.style.top = -oDrag.offsetTop *pery + "px";
+                 
+                // 知识储备：
+                // div.style.width获取的是内联样式
+
+                // 为什么获取元素一定要同offsetwidth而不用width
+                // 因为offsetwidth 返回的是一个number类型的数据，这样方便于大小比较
+                // 而width返回的字符串如"200px"，这样无法比较
+                // 其次，width获取的是<>标签内写的内联样式，通常没有人会这么写，所以获取元素宽度应用offsetwidth
+
+                // offsetwidth 与 clientwidth区别
+                // offsetwidth border + padding + width
+                // clientwidth padding + width
+
+                // 当元素隐藏的时候是无法获取元素的width 和 height
+            
+                
+
+            
+            }
+            
+
+        }
+        oSmall.onmouseout = function(){
+            oDrag.style.display = "none";
+            oBig.style.display = "none";
+        }
+
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            position: relative;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background: pink;
+            cursor: pointer;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        var oDiv = document.getElementsByTagName("div")[0];
+        // var tag = 0
+        // 鼠标按下时的left right坐标
+        oDiv.onmousedown = function(e){
+            // 这是为了改变第二次按下位置的初始值
+            var x = e.clientX - oDiv.offsetLeft;
+            var y = e.clientY - oDiv.offsetTop;
+            // 给documemt绑定鼠标移动事件表示的是即便鼠标移出了，也还可以移动
+           document.onmousemove = function(event){
+                oDiv.style.left = event.clientX - x +"px";
+                oDiv.style.top = event.clientY - y +"px";
+            }
+        }
+        oDiv.onmouseup = function(){
+            console.log(111)
+            // oDiv.onmousemove = null;
+            document.onmousemove = null;
+
+        }
+    </script>
+</body>
+</html>

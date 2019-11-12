@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="btn">click me</div>
+    <div id="btn1">what?</div>
+    <input type="text">
+    <script>
+    var oBtn = document.getElementById("btn");
+    // 单击事件 onclick
+
+    oBtn.onclick = function(){
+        alert("哈哈")
+
+    }
+    // 双击事件
+    var oBtn1 = document.getElementById("btn1");
+    oBtn1.ondblclick = function(){
+        alert("双击666");
+    }
+
+    // 获取焦点
+    var arr = document.getElementsByTagName("input");
+    var oInput = arr[0]
+    oInput.onfocus = function(){
+        oInput.style.backgroundColor = "pink";
+    }
+    
+ 
+    </script>
+    
+</body>
+</html>

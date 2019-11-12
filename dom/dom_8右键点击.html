@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0px;
+        margin: 0px;
+    }
+    #menu{
+        width: 100px;
+        padding: 5px 0;
+        border-radius:4px;
+        margin: 0px auto;
+        background: #cccccc;
+        display: none;
+        position: absolute;
+        left :0px;
+        top: 0px;
+    }
+    #menu>li{
+        width: 100px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        list-style: none;
+     
+    }
+    #menu>.active{
+       border-bottom: solid 1px white;
+    }
+    #menu>li:hover{
+        background: white;
+        color: aqua;
+        cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+    <ul id="menu">
+        <li>打开</li>
+        <li class="active">下载</li>
+        <li class="active">分享</li>
+        <li>移动到</li>
+        <li>复制到</li>
+        <li class="active">重命名</li>
+        <li>删除</li>
+    </ul>
+
+<script>
+var oMenu = document.getElementById("menu");
+var ali = oMenu.getElementsByTagName("li");
+document.oncontextmenu = function(event){
+    oMenu.style.display = "block";
+    event.preventDefault();
+    var left = event.clientX + "px";
+    var top = event.clientY + "px";
+    oMenu.style.left = left;
+    oMenu.style.top = top;
+
+}
+document.onclick = function(){
+    oMenu.style.display = "none";
+}
+for(var i = 0;i<ali.length;i++){
+    ali[i].index = i;
+    ali[i].onclick = function(){
+        console.log(ali[this.index].innerHTML);
+    }
+}
+
+</script>
+</body>
+</html>
