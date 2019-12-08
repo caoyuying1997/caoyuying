@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/iconfont.css">
+
 </head>
 <body>
     <!-- banner广告位 -->
@@ -527,12 +528,17 @@
                 <!-- 轮播图 -->
                 <div id="swipper">
                     <div id="swipper-content">
-                        <img class="show" src="./imgs/img1.jpg" alt="">
+                        <img src="./imgs/img1.jpg" alt="" class="show">
                         <img src="./imgs/img2.jpg" alt="">
-                        <img src="./imgs/img3.jpg" alt="">
+                        <img src="./imgs/img3.jpg" alt="" >
+                        <img src="./imgs/one.jpg" alt="" >
+                        <img src="./imgs/two.jpg" alt="" >
+                
                     </div>
                     <ul id="swipper-pointer">
                         <li class="active"></li>
+                        <li></li>
+                        <li></li>
                         <li></li>
                         <li></li>
                     </ul>
@@ -540,5 +546,26 @@
             </div>
         </div>
     </div>
+    <script>
+        var swipoi = document.getElementById("swipper-pointer");
+        var aLi = swipoi.getElementsByTagName("li");
+        var swicon = document.getElementById("swipper-content");
+        var aImg = swicon.getElementsByTagName("img");
+        // console.log(aLi);
+        // console.log(aImg);
+
+        for(var i = 0;i < aLi.length;i++){
+            aLi[i].index = i;
+           aLi[i].onclick = function(){
+               for(var j = 0;j <aLi.length;j++){
+                   aLi[j].className = "";
+                   aImg[j].className = "";
+               }
+               aLi[this.index].className = "active";
+               aImg[this.index].className = "show";
+           }
+        }
+       
+    </script>
 </body>
 </html>

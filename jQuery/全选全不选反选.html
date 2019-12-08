@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./jquery-1.11.3.js"></script>
+    <div>
+        <input type="checkbox">香蕉
+        <input type="checkbox">苹果
+        <input type="checkbox">鸭梨
+        <input type="checkbox">桃子
+    </div>
+
+    <div>
+        <button id="all">全选</button>
+        <button id="none">全不选</button>
+        <button id="reverse">反选</button>
+    </div>
+
+    <script>
+    // 全选操作
+       $("#all").on("click",function(){
+           $(":checkbox").prop("checked",true)
+       })
+    //全不选操作    
+       $("#none").on("click",function(){
+           $(":checkbox").prop("checked",false)
+       })
+    // 反选操作
+       $("#reverse").on("click",function(){
+           $(":checkbox").each(function(index,element){
+            // each 是一个遍历方法，each里面是一个function，里面是一个function(index,elememt),两个参数index和element
+            // element是一个dom对象！！！！！
+            
+    
+            //方法一：利用dom原生对象
+            // element.checked = ! element.checked
+
+            // 方法二：利用将dom变成jq对象
+            var tag = $(element).prop("checked")
+            $(element).prop("checked",!tag)
+
+           })
+       })
+    //    prop和attr的区别：
+    // prop针对的是特性
+    // attr是共性，attr处理特性问题时间，只能够执行一次
+    
+    
+    </script>
+    
+</body>
+</html>

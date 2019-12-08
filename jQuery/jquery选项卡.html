@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        #container{
+            width: 300px;
+            margin: 50px auto;
+            /* 让整个container居中展示 */
+        
+        }
+        #menu{
+           width: 300px;
+           height: 50px;
+           /* 给ul设置高度来清除浮动 */
+        }
+        #menu>li{
+            width: 100px;
+            height: 50px;
+            background: #ffffff;
+            color: #ff8903;
+            list-style: none;
+            float:left;
+            text-align: center;
+            line-height: 50px;
+        }
+        #menu>.active{
+            background-color: #ff8903;
+            color: #ffffff;
+        }
+        #content{
+            width :100%;
+            height: 300px;
+            position: relative;
+        }
+        #content>div{
+            height: 100%;
+            width: 100%;
+            color: #ff8903;
+            background: #fff;
+            /* display: none; */
+            /* 用来展示的两种方法，可以用定位，也可以用透明度 */
+            position:absolute;
+            opacity: 0;
+            top: 0;
+            left: 0;
+        }
+        #content>.show{
+            /* display: block; */
+            opacity: 1;
+            transition: opacity 1s ease;
+            color: #fff;
+            background: #ff8903;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul id="menu">
+            <li class="active">菜单一</li>
+            <li>菜单二</li>
+            <li>菜单三</li>
+        </ul>
+        <div id="content">
+            <div class="show">内容一</div>
+            <div>内容二</div>
+            <div>内容三</div>
+        </div>
+    </div>
+    <script src="./jquery-1.11.3.js"></script>
+    <script>
+        $("#container li").on("click",function(){
+            // index是jquery下的方法,this是dom对象下的指针所以要用$(this)转成jquery的对象，jquery的index是方法
+            var index = $(this).index();
+            // console.log( $(this))
+            $(this).addClass("active").siblings().removeClass("active");
+            $("#content div").eq(index).addClass("show").siblings().removeClass("show");
+        })
+      
+    
+    </script>
+    
+</body>
+</html>
