@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>123456</div>
+    <button>click</button>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script src="./jquery-1.11.3.js"></script>
+    <script>
+    //   $('li').on('click',function(){
+    //       console.log($(this).html())
+    //   })
+    // 这个无法实现输出随机数效果
+
+    // 这种方法和上述方法作用相同，只不过是target 属性可以是注册事件时的元素，或者它的子元素。
+    //  通常用于比较 event.target 和 this 来确定事件是不是由于冒泡而触发的。经常用于事件冒泡时处理事件委托。
+    $('ul').on('click','li',function(event){
+        console.log(event.target.innerHTML)
+        
+    })
+
+      //点击button将给ul插入随机数子元素
+      $('button').on('click',function(){
+          $('ul').append('<li>' + Math.random() +'</li>')
+      })
+
+    // trigger根据绑定到匹配元素的给定的事件类型执行所有的处理程序和行为。
+    $('div').on("click",function(){
+        $("button").trigger('click');
+        // 表示点击div就自动执行button的点击行为
+    })
+    </script>
+</body>
+</html>

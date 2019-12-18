@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        height: 200px;
+        width: 200px;
+        background: pink;
+    }
+    </style>
+</head>
+<body>
+    <button id="hide">hide</button>
+    <button id="show">show</button>
+    <button id="toggle">toggle</button>
+    <button id="animate">animate</button>
+    <button id="stop">stop</button>
+    <button id="fadein">fadein</button>
+    <div></div>
+    <script src="./jquery-1.11.3.js"></script>
+    <script>
+        $('#hide').on('click',function(){
+            $('div').hide(2000,function(){
+                console.log(1)
+            });
+            // 第二个function表示动画执行完后输出1
+        })
+        $("#show").on('click',function(){
+            $('div').show(2000);
+        })
+        $('#toggle').on("click",function(){
+            $("div").toggle(2000);
+        })
+        // animate自定义动画属性animate({opcity}，动画时间，function回调函数)
+        // $("#animate").on('click',function(){
+        //     $('div').animate({
+        //         width:'400px',
+        //         opacity:'0.5', 
+        //     },2000,function(){
+        //         $('div').animate({
+        //             height:"400px",
+        //             opacity:0.25
+        //         },2000)
+        //     })
+
+        // })
+
+        // 同上不过采用jQuery的链式操作
+        $('#animate').on('click',function(){
+            $('div').animate({
+                height:"400px",
+                opacity:0.5
+            },2000).animate({
+                width:'400px',
+                opacity:0.8
+            },2000)
+
+        })
+
+        // stop停止匹配元素当前正在运行的动画，stop(clearQueue,jumpToEnd)
+        // clearQueue,指示是否取消已经列队的动画，默认值是false
+        // jumpToEnd 是否当前动画立即完成，默认值也是false
+
+        // 淡入淡出效果图
+        $('#stop').on('click',function(){
+            $('div').stop(true,false)
+
+        })
+
+        // .fadeIn通过淡入的方式显示匹配元素
+        $('#fadein').on('click',function(){
+            $('div').fadeIn(4000,function(){
+               console.log(1)
+            })
+        })
+
+
+
+    </script>
+</body>
+</html>

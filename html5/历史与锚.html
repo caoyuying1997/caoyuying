@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button>点击</button>
+    <div></div>
+    <p></p>
+    <script>
+    var oBtn = document.querySelector("button");
+    var oDiv = document.querySelector("div");
+    var oP = document.querySelector("p")
+    oBtn.onclick = function(){
+        var tag = Math.random();
+        console.log(tag)
+        oDiv.innerText = tag
+        location.hash = tag;
+    }
+    // 第一步先将获得的随机数先变成页面的锚
+    window.onhashchange = function(){
+        oP.innerText = location.hash;
+    }
+    // 第二步当页面回退的时候不仅锚回退，p标签也要显示当前的锚
+    // location.hash是获取当前的锚
+
+
+    </script>
+</body>
+</html>

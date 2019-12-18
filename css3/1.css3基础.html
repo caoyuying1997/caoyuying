@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .list + li{
+        color: black !important;
+        /* .list下li的第一个兄弟 */
+    }
+    .list ~ li{
+        color: brown;
+        /* /.list下li的所有兄弟 */
+    }
+    
+    li[class = "list"]{
+        color: pink;
+    }
+    li[class ^= "list"]{
+        /* 选中以list开头的 */
+        color: plum;
+    }
+    li[class ~= "list"]{
+        color: red;
+        /* 选中list和list+空格 如1，4 */
+
+    }
+    li[class $= "list"]{
+        color: royalblue;
+        /* 以list结尾 */
+    }
+    li[class *= "list"]{
+        color: sandybrown;
+        /* 以list开头 */
+    }
+    li[class |= "list"]{
+        color: green;
+        /* 选中list和list——...，如1，5 */
+    }
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="list1">1</li>
+        <li class="list">2</li>
+        <li class = "list3">3</li>
+        <li class="list list111 li">4</li>
+        <li class = "list-free">5</li>
+    </ul>
+</body>
+</html>

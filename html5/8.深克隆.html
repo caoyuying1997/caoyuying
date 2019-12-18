@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+      function deepclone(params){
+          var temp;
+          // 先判断params是基本数据类型还是引用数据类型   
+          if(typeof params === "object"){
+              //判断是引用数据类型中的哪一种，是数组还是对象   
+              temp = Array.isArray(params) ? []:{}
+              for(var key in params){
+                  if(typeof params[key] === "object"){
+                      temp[key] = deepclone(params[key])
+                  }else{
+                      temp[key] = params[key]
+                  }
+
+              }
+
+          }else{
+              temp = params;
+          }
+          return temp
+      }
+      console.log(deepclone("abc"))
+      console.log(deepclone([1,2,3,4]))
+      console.log(deepclone({
+          name:"caoyuying",
+          age:"18"
+      }))
+    </script>
+</body>
+</html>

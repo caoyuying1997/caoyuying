@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function deepclone(params){
+        var temp;
+        if(typeof params === "object"){
+            temp = Array.isArray(params)? []:{}
+            for(var key in params){
+                if(typeof params[key] === "object"){
+                    temp[key] = deepclone(params[key])
+
+                }else{
+                    temp[key] = params[key]
+                }
+            }
+        }else{
+            temp = params
+        }
+    return temp
+    }
+    var obj = {
+        name:"cyy",
+        age:19
+    }
+    var obj1 = deepclone(obj);
+    obj1.name = "hah"
+    console.log(obj)
+    console.log(obj1)
+    var arr2 = deepclone(2)
+    console.log(arr2)
+    </script>
+</body>
+</html>

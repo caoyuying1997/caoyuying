@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button>点击</button>
+    <div></div>
+    <p></p>
+    <script>
+        var oBtn = document.querySelector("button");
+        var oDiv = document.querySelector("div");
+        var oP = document.querySelector("p");
+
+        oBtn.onclick = function(){
+            var tag = Math.random();
+            oDiv.innerHTML = tag;
+            // location.hash = tag;
+            // pushatate向他追加记录
+            history.pushState(tag," ")
+            // 第一个是追加的变量名，第二个是页面名字，可以为空，但不能不写
+            
+            // innerHTML按照标签渲染，innerText是按照文本输入进去
+        }
+        // 新需求就是点击页面后，不光生成随机数，还需要有返回的历史记录，有前进和后退
+        // 在url#后的叫做锚，每一个页面的锚都唯一
+        // 让锚每次点击的时候与随机数相同\
+        // location.hash用来获取锚
+        // 回退的时候锚变了但是里面的内容却没有发生变化
+
+
+        // // window.onhashchange() 监听锚的改变
+        // window.onhashchange = function() {
+        //     console.log(location.hash);
+        //     oP.innerText = location.hash;
+        // }
+
+        // onpopstate当窗口历史记录改变时触发
+        window.onpopstate = function(e) {
+            // e.target
+            console.log(e.state)
+            oP.innerText = e.state
+        }
+
+
+    </script>
+</body>
+</html>

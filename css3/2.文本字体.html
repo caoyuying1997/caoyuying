@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        height: 500px;
+        width: 500px;
+        
+    }
+    div::after{
+        content: "";
+        display: block;
+        height: 200px;
+        width: 200px;
+        background: khaki;
+    }
+    span:first-of-type{
+        /* 该类型下的第一个 */
+        height: 300px;
+        width: 300px;
+        background: lawngreen;
+        text-shadow: 5px 10px 2px red;
+    }
+    p:first-of-type{
+        height: 100px;
+        width: 100px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        /* ellipsis 溢出变成省略号..... & clip 溢出变成裁掉*/
+        /* 
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden; 
+        必须要写，这很重要
+        */
+    }
+    </style>
+</head>
+<body>
+    <div>
+        <span>哈哈哈</span>
+        <p>施工卡卡个施工卡卡个施工卡卡个施工卡卡个施工卡卡个施工卡卡个施工卡卡个施工卡卡个施工卡卡个施工卡卡个</p>
+    </div>
+</body>
+</html>

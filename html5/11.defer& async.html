@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- js是单线程的，但html是多线程的 -->
+    <!-- defer & async -->
+    <!--defer 先渲染结构，遇到js开始加载同时dom继续渲染，（渲染完成后再执行js）
+      async 先渲染结构，遇到js开始加载并同时dom继续渲染，（js加载完成后立马执行js），同时dom停止渲染-，js执行完成后再继续渲染-->
+   <script defer src = "../jQuery/jquery-1.11.3.js"></script>
+   <script async src="../jQuery/jquery-1.11.3.js"></script>
+</body>
+</html>

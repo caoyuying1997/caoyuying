@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 封装设置cookie函数
+    function setcookie(key,value,expires){
+        var date = new Date();
+        date.setDate(date.getDate()+ expires * 1)
+        document.cookie = key + '=' + value + ";expires = " + date.toUTCString();//把date对象变成字符串
+    }
+    setcookie("tag",2,3);
+    // 获取cookie
+    function getcookie(key){
+        var cookie = document.cookie
+        var arr = cookie.split(";")
+        for(var i = 0;i < arr.length; i++){
+            var tmp = arr[i].split("=");
+            if(tmp[0].trim() === key){
+                return tmp[1]
+            }
+
+        }
+    }
+    var a = getcookie("tag")
+    console.log(a)
+    setcookie("taken","112233")
+    console.log(getcookie("taken"))
+
+    // 删除cookie
+    function delcookie(key){
+        var date = new Date();
+        date.setDate = date.getDate() - 1;
+        document.cookie = key +" = null ;expires = " + date.toUTCString();
+    }
+    delcookie("tag")
+    </script>
+</body>
+</html>
