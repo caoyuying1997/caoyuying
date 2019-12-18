@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">123456</div>
+
+    <div id="content"></div>
+
+    <div id="container"></div>
+
+    <script src="./jquery-1.11.3.js"></script>
+    <script>
+        // append在每个匹配元素里面的末尾处插入参数内容
+        $("#wrapper").append("p标签<p>");
+
+        // appendTo将匹配的元素插入到目标元素的最后面
+        $('<a href="#">a标签</a>').appendTo('#wrapper');
+
+        // html 获取集合中第一个匹配元素的HTML内容 或 设置每一个匹配元素的html内容
+        $("#content").html('<a href="#">百度</a>');
+        // 这个出来的是跳转网址
+
+        // text得到匹配元素集合中每个元素的文本内容结合，包括他们的后代，或设置匹配元素集合中每个元素的文本内容为指定的文本内容。
+        $("#content").text('<a href="#">百度</a>');
+        // 这个出来的是文本
+
+        // after 在匹配元素集合中的<每个元素>后面插入参数所指定的内容，作为其兄弟节点。
+        $('div').after('<span>span标签</span>');
+
+        // empty 从DOM中移除集合中匹配元素的所有子节点
+        // remove 将匹配元素集合从DOM中删除。（注：同时移除元素上的事件及 jQuery 数据。）
+        $("#wrapper").empty();
+        $("#content").remove();
+
+
+    
+    </script>
+</body>
+</html>

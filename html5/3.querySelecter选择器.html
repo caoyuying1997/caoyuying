@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="haha">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <div  data-name="caoyuying" data-age="18" data-first-name="cao"></div>
+    <script>
+    
+     var a = document.getElementById("haha");
+     var b = document.querySelector("#haha");
+     var c = document.querySelector("li");// 只打印了一个li
+    //  querySelector 第一个类为 li 的标签
+    var d = document.querySelectorAll("li");// 打印类为li下的所有元素，返回的是一个类数组
+     console.log(a);
+     console.log(b);
+     console.log(c);
+     console.log(d);
+
+     var oDiv = document.getElementsByTagName[0];
+    //  oDiv.index = 1;
+    //  console.log(oDiv.index)
+     oDiv.setAttribute("tag",true);
+     console.log(getAttribute("tag"));
+     oDiv.dataset.name = "wahaha";
+     console.log("oDiv.dataset.name");
+
+    </script>
+</body>
+</html>

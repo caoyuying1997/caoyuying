@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj = {
+            name:"caoyuying",
+            age:"18",
+            info:{
+                height:"167cm",
+                weight:"55kg"
+            }
+        }
+       function deepclone(obj){
+           var temp = {}
+           for(var key in obj){
+            //    console.log(key)
+            //    console.log(obj[key])
+            if(typeof obj[key] === "object"){
+                temp[key] = deepclone(obj[key])
+            }else{
+                temp[key] = obj[key]
+            }
+           }
+           return temp
+       }
+       var obj1 = deepclone(obj) //这里需要给deepclone一个接收值
+       obj1.name = "Aiors"
+       console.log(obj1)
+       console.log(obj)
+    </script>
+</body>
+</html>

@@ -80,6 +80,7 @@
             // index是jquery下的方法,this是dom对象下的指针所以要用$(this)转成jquery的对象，jquery的index是方法
             var index = $(this).index();
             // console.log( $(this))
+            // siblings()表示的是它的兄弟元素
             $(this).addClass("active").siblings().removeClass("active");
             $("#content div").eq(index).addClass("show").siblings().removeClass("show");
         })

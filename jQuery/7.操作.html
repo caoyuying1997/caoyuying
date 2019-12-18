@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+  <div id = "wrapper">123456</div>
+  <div id = "container"></div>
+  <div id = "content"></div>
+  <script src="./jquery-1.11.3.js"></script>
+  <script>
+    $("#wrapper").append('<p>p标签</p>');
+    $('<a href = "#">a标签</a>').appendTo('#wrapper');
+    
+    $('#content').html('<a href = "#">百度</a>');
+    $('#container').text('<a href = "#">百度</a>')
+
+    // 插入div的兄弟标签
+    $('div').after('<span>span标签</span>')
+
+    // empty移出子节点
+    // $('#wrapper').empty()
+
+    // remove全部都删除
+    // $('#contene').remove()
+
+    // replaceAll 全部替换
+    // $('<h1>hello</h1>').replaceAll('span')
+
+    var $a =  $('span');
+    // 这个输出的是dom对象
+    console.log($a[0])
+    
+
+    var $s = $('span');
+    // 这个输出的是jquery对象
+    console.log($s.eq(0))
+
+    //遍历
+    $s.each(function(i,ele){
+        console.log(i,ele)
+        $(ele)
+
+    })
+
+    // children所有孩子
+    // parent(父元素) & parents（祖先元素）
+    // ready 文档就绪函数
+
+    
+
+
+
+
+  </script>
+</body>
+</html>

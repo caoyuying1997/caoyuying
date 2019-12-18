@@ -22,6 +22,13 @@
     </div>
 
     <script>
+    // attr ,prop 
+    // 给元素设置/获取属性 
+    // 设置时，可以给所有元素设置属性
+    // 获取时，只能获取第一个元素的属性
+    // attr设置普通属性
+    // prop设置特殊属性 （不是所有标签都有的属性）
+
     // 全选操作
        $("#all").on("click",function(){
            $(":checkbox").prop("checked",true)
@@ -46,7 +53,7 @@
 
            })
        })
-    //    prop和attr的区别：
+    // prop和attr的区别：
     // prop针对的是特性
     // attr是共性，attr处理特性问题时间，只能够执行一次
     
