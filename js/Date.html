@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+   var mydate = new Date();
+    // 定义date
+
+    console.log(mydate.getDate());
+    // getDate获得的是当天的日期
+
+    console.log(mydate.getDay())
+    // getDay获得当天星期
+
+    console.log(mydate.getMonth() + 1)
+    // 获得当月月份
+
+    console.log(mydate.getUTCFullYear())
+    //获得年份
+
+    var date = new Date();
+    console.log(date.getUTCFullYear() + "年" + date.getMonth() + 1 +"月" + date.getDate() + "日" + "星期" + date.getDay())
+  </script>
+</body>
+</html>
