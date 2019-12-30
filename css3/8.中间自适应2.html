@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #parent{
+        height: 200px;
+        width: 100%;
+        position: relative;
+    }
+    #parent>div:first-child{
+        height: 200px;
+        width: 200px;
+        float: left;
+        background: pink;
+    }
+    #parent>div:nth-child(2){
+        height: 200px;
+        width: 100%;
+        background: powderblue;
+    }
+    #parent>div:nth-child(3){
+        height: 200px;
+        width: 200px;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        background: firebrick;
+    }
+    
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <div></div>
+        <div></div>
+        <div></div>
+        <!--
+        全应用浮动
+        先第一个元素进行左浮动，第三个元素进行右浮动
+        div布局1，3，2
+      -->
+    </div>
+</body>
+</html>

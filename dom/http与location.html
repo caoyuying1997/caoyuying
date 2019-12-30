@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn1">按钮1</button>
+    <button id="btn2">按钮2</button>
+    <button id="btn3">按钮3</button>
+    <script>
+        // location.href： 返回完整URL。
+        // location.pathname： 返回URL的域名（域名IP）后的部分。
+        // 既然提到这了，那我们就分析下下面的URL：
+        // http://www.example.com:8080/test.php?user=admin&pwd=admin#login
+        // 想得到整个如上的完整url，我们用：location.href; 
+        // 得到传输协议http:,我们用：location.protocol; 
+        // 得到主机名连同端口www.example.com:8080，我们用：location.host; 
+        // 得到主机名www.joymood.cn，我们用：location.hostname; 
+        // 得到主机后部分不包括问号?后部分的/test.php，就用我们刚才讲的：location.pathname; 
+        // 得到url中问号?之后井号#之前的部分?user=admin&pwd=admin，我们就用： location.search; 
+        // 得到#之前的部分#login，我们就用location.hash
+        var oBtn1 = document.getElementById("btn1")
+        var oBtn2 = document.getElementById("btn2")
+        var oBtn3 = document.getElementById("btn3")
+        oBtn1.onclick = function(){
+            location.href = "https://www.baidu.com/"
+            // 跳转至新页面，有历史记录
+        }
+        oBtn2.onclick = function(){
+            location.reload();
+        }
+        oBtn3.onclick = function(){
+            location.replace("https://juejin.im/")
+        }
+        console.log(location.href)
+        // 打印完整个的url
+        console.log(location.hash)
+        // 打印url#后面的锚
+        console.log(location.search)
+        // 打印？之后#之前的内容
+
+        
+    </script>
+</body>
+</html>

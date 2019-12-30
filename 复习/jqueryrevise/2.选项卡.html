@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    #container{
+        width: 300px;
+        margin: 50px auto;
+        /* 利用margin让container居中展示 */
+    }
+    #menu{
+        width: 300px;
+        height: 50px;
+    }
+    #menu>li{
+        width: 100px;
+        height: 100%;
+        list-style: none;
+        float: left;
+        color:#ff8903;
+        background:  white;
+        text-align: center;
+        line-height: 50px;
+    }
+    #menu>.active{
+        background: #ff8903;
+        color: white;
+    }
+    #content{
+        height: 300px;
+        width: 100%;    
+        position: relative;
+    }
+    #content>div{
+        height: 100%;
+        width: 100%;
+        background: white;
+        color: #ff8903;
+        /* float: left; */
+       opacity: 0;
+       position: absolute;
+    }
+    #content>.show{
+        background: #ff8903;
+        color: white;
+        opacity: 1;
+        transition: 1s ease;
+    }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul id="menu">
+            <li class="active">菜单一</li>
+            <li>菜单二</li>
+            <li>菜单三</li>
+        </ul>
+        <div id="content">
+           <div class="show">内容一</div>
+           <div>内容二</div>
+           <div>内容三</div>
+        </div>
+    </div>
+    <script src="./jquery-1.11.3.js"></script>
+    <script>
+        // 菜单的点击操作
+        $("#menu li").on("click",function(){
+            $(this).addClass("active").siblings().removeClass("active");
+            
+            // $内容的切换操作
+            var tag = $(this).index();
+            // index()是jquery对象下的内置索引方法
+
+            $("#content div").eq(tag).addClass("show").siblings().removeClass("show");
+            // 这里是对第几个进行展示,所以必去要用eq(),这样才能确定好是要展示的第几个
+            
+        })
+
+
+    </script>
+</body>
+</html>

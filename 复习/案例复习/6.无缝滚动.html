@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            height: 3000px;
+        }
+        #container{
+            height: 300px;
+            width: 500px;
+            border:1px solid red;
+            /* overflow: hidden; */
+            position: relative;
+            margin: 50px auto;
+        }
+        #wrapper{
+            width: 520px;
+            height:120px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        
+        }
+        #wrapper>li{
+            height: 120px;
+            width: 120px;
+            list-style: none;
+            float: left;
+            margin: 0 5px;
+            line-height: 120px;
+            text-align: center;
+            background: pink;
+            color: #ffffff;
+        }
+        #footer{
+            width: 100%;
+            position: absolute;
+            bottom: 30px;
+            left: 130px;
+            
+        }
+        #footer>#left,
+        #right{
+            background: plum;
+            color: #ffffff;
+            width: 120px;
+            height: 30px;
+            line-height:30px;
+
+        }
+      
+        }
+    </style>
+
+</head>
+<body>
+    <div id="container">
+        <ul id="wrapper">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    <div id="footer">
+        <button id="left">left</button>
+        <button id="right">right</button>
+    </div>
+    </div>
+    <script>
+    var oWrapper = document.getElementById("wrapper")
+    var oRight = document.getElementById('right')
+    var oLeft = document.getElementById('left')
+
+    //li内容*2，为了让他无缝衔接
+    oWrapper.innerHTML += oWrapper.innerHTML
+
+    //，扩大wrapper的width所有内容横向排列
+    // offsetWidth = width + padding + border，clientWidth = padding + width
+    // 用style.width是设置宽度，offsetWidth是宽度（number类型）
+    oWrapper.style.width = oWrapper.offsetWidth * 2 + 'px';
+
+    // 往左走，改变left的值，一定要有定位，还要有默认的left，top值
+
+    // 移动的步长20px
+    var speed = -20;
+     
+    setInterval(function(){
+        oWrapper.style.left = oWrapper.offsetLeft + speed + 'px';
+        if (oWrapper.offsetLeft < - oWrapper.offsetWidth/2){
+            oWrapper.style.left = 0
+        }
+        if(oWrapper.offsetLeft > 0){
+            oWrapper.style.left = -oWrapper.offsetWidth/2 + 'px'
+
+        }
+    },500)
+    oRight.onclick  = function(){
+        speed = 20
+    }
+    oLeft.onclick = function(){
+        speed = -20;
+    }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+
+        }
+        body{
+            perspective: 800px;
+            background: #000000;
+        }
+        #container{
+            height: 200px;
+            width: 200px;
+            margin: 100px auto 0;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: move 1s ease infinite;
+
+        }
+        @keyframes move{
+            from{
+                transform: rotateY(0deg) rotateZ(0deg);
+            }
+            to{
+                transform: rotateY(360deg) rotateZ(360deg);
+            }
+            
+        }
+        #container>div{
+            height: 100%;
+            width: 100%;
+            border-radius: 5px;
+            background: rgba(255,255,255,0.5);
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            text-align: center;
+            line-height: 200px;
+            font-size: 30px;
+        }
+        #one{
+            transform:rotateX(-90deg) translateZ(100px);
+        }
+        #two{
+            transform:translateZ(100px) ;
+        }
+        #three{
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+        #four{
+            transform: rotateY(-180deg) translateZ(100px);
+        }
+        #five{
+            transform: rotateY(90deg) translateZ(100px);
+        }
+        #six{
+            transform: translateZ(-100px);
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="one">1</div>
+        <div id="two">2</div>
+        <div id="three">3</div>
+        <div id="four">4</div>
+        <div id="five">5</div>
+        <div id="six">6</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+#container{
+    width: 1920px;
+    margin: 0 auto;   
+}
+#qianku>img{
+    width: 2.56rem;
+    height: 0.65rem;
+    margin-top: 0.36rem;
+    margin-left: 3.62rem;
+}
+head-info{
+    width: 7.98rem;
+    height: 1.28rem;
+    display: flex;
+    flex-direction: row;
+}
+#head-info>li{
+    width: 7.98rem;
+    height: 1.28rem;
+    font-size: 16px;
+    line-height: 1.28rem;
+}

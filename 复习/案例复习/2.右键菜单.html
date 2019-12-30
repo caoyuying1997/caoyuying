@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            height: 3000px;
+        }
+        #menu{
+            width: 150px;
+            padding: 5px auto;
+            border-radius: 5px;
+            background: rgba(0, 0,0, 0.2);
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            cursor: pointer;
+        
+        }
+        #menu>li{
+            list-style: none;
+            height: 30px;
+            width: 100%;
+            text-align: center;
+            line-height: 30px;
+        }
+        #menu>li:hover{
+            background: pink;
+            color:white;
+        }
+        #menu>.list{
+            border-bottom: 1px solid white;
+        }
+    </style>
+</head>
+<body>
+    <ul id ="menu">
+        <li>打开</li>
+        <li class="list">下载</li>
+        <li class="list">分享</li>
+        <li>移动到</li>
+        <li>复制到</li>
+        <li class="list">重命名</li>
+        <li>删除</li>
+    </ul>
+    <script>
+    var oMenu = document.getElementById("menu")
+    var ali = oMenu.getElementsByTagName("li")
+    // oncontextmenu 鼠标右键点击是触发
+    document.oncontextmenu = function(event){
+        event.preventDefault();
+        // 阻止浏览器的默认菜单
+        var left = event.clientX;
+        var top = event.clientY;
+        oMenu.style.top = top + "px"
+        oMenu.style.left = left + "px"
+        oMenu.style.display = "block"
+    }
+
+    document.onclick = function(){
+        oMenu.style.display = "none";
+        // 单击鼠标消失
+    }
+    
+    for(var i = 0;i<ali.length;i++){
+        ali[i].index = i;
+       ali[i].onclick = function(){
+           console.log(ali[this.index].innerText)
+       }
+    }
+
+    
+    </script>
+</body>
+</html>

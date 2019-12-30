@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    #first{
+        height: 400px;
+        width: 400px;
+        border: 5px solid pink;
+        box-shadow: 5px 5px 5px skyblue;
+        /* box-shadow 边框阴影 左右 上下 虚化程度 颜色 */
+        background: url("./img/15.jpg");
+        background-size: 400px 400px;
+        /* 改变背景图片大小 */
+
+    }
+    #second{
+        height: 400px;
+        width: 200px;
+        border: 5px solid pink;
+        box-shadow: 5px 5px 5px skyblue;
+        /* box-shadow 边框阴影 左右 上下 虚化程度 颜色 */
+        background: url("./img/15.jpg") no-repeat;
+        background-size: contain;
+        /* 改变背景图片大小 cover等比缩放直到完全覆盖容器 contain 等比缩放与宽度或者高度相等的情况 */
+
+    }
+</style>
+<body>
+    <div id="first"></div>
+    <div id="second"></div>
+    <!-- 
+        盒模型
+        box-sizing: 
+        content-box 标准盒模型  width = width + padding + border
+        border-box 怪异盒模型 width = width
+        标准盒模型与怪异盒模型的转换 box-sizing:content-box
+        button 是一个典型的怪异盒模型
+     -->
+</body>
+</html>

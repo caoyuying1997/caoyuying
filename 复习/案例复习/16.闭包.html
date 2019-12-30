@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script>
+        var ali = document.getElementsByTagName("li")
+        // 利用this指针遍历列表
+        // for(var i = 0;i<ali.length;i++){
+        //     ali[i].index = i;
+        //     ali[i].onclick = function(){
+        //         console.log(ali[this.index])
+        //     }
+        // }
+
+        // 利用call改变指针遍历列表
+        // for(var i = 0;i <ali.length;i++){
+        //     ali[i].onclick = function(){
+        //         setTimeout(function(){
+        //             console.log(this.innerHTML)
+        //         }.call(this),3000)
+        //     }
+        // }
+
+
+        // 利用闭包遍历列表
+        for(var i = 0;i<ali.length;i++){
+            (function(j){
+                ali[j].onclick = function(){
+                    console.log(j + 1)
+
+                }
+            })(i)
+            // 函数嵌套函数构成一个闭包
+        }
+        function f1(){
+            var x = 1;
+           return function(){
+                x++;
+                console.log(x);
+            }
+        }
+        var s = f1();
+        s();
+        s();
+        s();
+        // what?????????????????
+        // function test(){
+        //     var n = 1;
+        //     return function(){
+        //         n++;
+        //         console.log(n);
+        //     }
+        // }
+        // var result = test();
+        // result(); //2
+        // result(); //3
+        // result();//4
+                
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    ul{
+        background: powderblue;
+    }
+    li{
+        background: salmon;
+    }
+    </style>
+</head>
+<body>
+    <button>点击</button>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script>
+        var aul = document.getElementsByTagName("ul")[0];
+        var ali = document.getElementsByTagName("li");
+        var oBtn = document.getElementsByTagName("button")[0];
+        
+        
+        for(var i =0;i<ali.length;i++){
+            ali[i].onclick = function(){
+                console.log(this.innerHTML);
+            }
+        }
+
+        oBtn.onclick = function(){
+            var oli = document.createElement("li");
+            oli.innerHTML = Math.random();
+            aul.appendChild(oli);
+
+        }
+      
+        aul.onclick = function(e){
+            console.log(e.target);
+            if(e.target.nodeName == "LI"){
+            console.log(e.target.innerHTML);
+
+            }
+
+        }
+
+        // 为什么新插入的随机数并不在控制台显示？
+        // 因为在还没有对button进行点击事件时，for循环就已经执行完成了
+        // 解决办法：利用事件委托动态插入随机数，并在控制台上显示出来
+    </script>
+</body>
+</html>

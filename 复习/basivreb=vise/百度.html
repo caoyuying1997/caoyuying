@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        #menu{
+            padding-top: 20px;
+           float: right; 
+           /* 注意看父子关系的float */
+
+        }
+        #menu>.menu_list{
+            
+            float: left; 
+            margin-left:16px ;
+            font-size: 12px;
+            
+            /* color: black; 改变颜色后根本不好使，因为a标签比较特殊，没有办法继承父元素的样式*/
+
+        }
+        li{
+            list-style: none;
+        }
+        #menu>.menu_list>a{
+            color: black;
+            font-weight: bolder;
+
+        }
+        #menu>.menu_list>a:hover{
+            color: blue;
+           
+        }
+        .menu_list_link{
+            /* font-weight: normal; 这么写想把登陆和设置便细各根本不好使*/
+            /* 原因：优先级低 */
+        }
+        .menu_list_btn{
+            margin-right: 10px;
+            position: relative;
+            bottom:3px;
+            
+        }
+        #logo{
+            text-align: center;
+        }
+        #logo img{
+            
+            width: 270px;
+            
+
+        }
+        #logo a{
+            display: inline-block;
+            width: 270px;
+            height: 129px;
+        }
+        .clearfix::after{
+            content: "";
+            display: block;
+            clear: both;
+        
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="container" class="clearfix">
+        <!--ul#menu>li.menu_list*9 -->
+        <ul id="menu">
+            <li class="menu_list">
+                <a href="">新闻</a>
+            </li>
+            <li class="menu_list">
+                <a href="">天气</a>
+            </li>
+            <li class="menu_list">
+                <a href="">贴吧</a>
+            </li>
+            <li class="menu_list">
+                <a href="">hao132</a>
+            </li>
+            <li class="menu_list">
+                <a href="">学术</a>
+            </li>
+           
+            <li class="menu_list">
+                <a href="">地图</a>
+            </li>
+            <li class="menu_list">
+                <a href="">视频</a>
+            </li>
+            <li class="menu_list" class="menu_list_link">
+                    <a href="">登陆</a>
+            </li>
+            <li class="menu_list" class="menu_list_link">
+                <a href="">设置</a>
+            </li>
+            <li class="menu_list">
+                    <button class="menu_list_btn">更多产品</button>
+            </li>
+            <!-- 子元素设置浮动就会造成父元素的塌陷问题，那么就需要给父元素设置一个伪元素，进行清除浮动 -->
+        </ul>
+    
+        <div id="logo">
+                <a href="https://baidu.com">
+                    <img src="http://s1.bdstatic.com/r/www/cache/mid/static/xueshu/img/logo_4b1971d.gif" alt="">
+                </a>
+        </div> 
+    </div>
+</body>
+</html>

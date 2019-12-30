@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #parent{
+        height: 500px;
+        width: 500px;
+        background: pink;
+    }
+    #child{
+        height: 200px;
+        width:200px;
+        background: powderblue;
+    }
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <div id="child"></div>
+    </div>
+    <script>
+    var oParent = document.getElementById("parent");
+    var oChild = document.getElementById("child");
+    // oParent.onclick = function(){
+    //     console.log("hasduifi")
+    // }
+    // oParent.onclick = function(){
+    //     console.log("123456")
+    // }
+    oChild.onclick = function(){
+        console.log("11dsf5555sdfs")
+    }
+    // 嵌套关系时，如果父子都绑定了点击事件，那么子点击事件触发后，父元素的点击事件也会被触发
+    // oParent.addEventListener("click",function(){
+    //     console.log("123")
+    // },true)
+    // oParent.addEventListener("click",function(){
+    //     console.log("456")
+    // },true)
+    oParent.addEventListener("click",function(){
+        console.log("123")
+    },false)
+    oParent.addEventListener("click",function(){
+        console.log("456")
+    },false)
+
+    // false 是事件冒泡，true是事件捕获
+
+    // 无论是冒泡还是捕获都是点击子元素或触发父元素的事件
+    </script>
+</body>
+</html>

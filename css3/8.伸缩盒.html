@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    #parent{
+        height: 200px;
+        width: 100%;
+        display: flex;
+        /* 伸缩盒 */
+        /* justify-content: space-around; */
+        /* 内容适应方式
+        flex-right : 靠右侧排列
+        flex——left : 靠左侧排列
+        sapce-around:左右两侧都有留白
+        space- between:仅中间元素左右两侧有留白
+         */
+        flex-direction: column-reverse;
+        /* 排列方式 
+            flex-direction与justify-content同时出现时，flex-direction优先级更高
+            row横向排列
+            column竖向排列
+            row-reverse 横向反转排列
+            column-reverse 竖向反转排列
+            
+        
+        */
+
+    }
+    #parent>div:first-child{
+        background: salmon;
+        /* flex: 1; 表示占剩余空间的几份 */
+        height: 200px;
+        width: 200px;
+       
+    }
+    #parent>div:nth-child(2){
+        background: sandybrown;
+        /* flex: 3; */
+        height: 200px;
+        width: 200px;
+    }
+    #parent>div:nth-child(3){
+        background: seagreen;
+        /* flex: 3; */
+        height: 200px;
+        width: 200px;
+    }
+</style>
+<body>
+    <div id="parent">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</body>
+</html>

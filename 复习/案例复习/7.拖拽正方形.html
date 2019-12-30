@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            position: relative;
+        }
+        div{
+            height:200px;
+            width: 200px;
+            background: pink;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            cursor: move;
+        }
+    </style>
+
+
+</head>
+<body>
+    <div></div>
+    <script>
+    var oDiv = document.getElementsByTagName("div")[0];
+    var x ;
+    var y;
+    
+    oDiv.onmousedown = function(e){
+      x = e.clientX - oDiv.offsetLeft;
+      y = e.clientY - oDiv.offsetTop;
+      console.log("按下鼠标")
+
+     // 在按下鼠标时，触发移动鼠标事件，如果鼠标移动不是在按下鼠标函数体内，那么将会产生松开鼠标再也无法按下
+      document.onmousemove = function(event){
+        oDiv.style.left = event.clientX - x + "px";
+        oDiv.style.top = event.clientY - y + "px";
+     }
+    }
+    
+   oDiv.onmouseup = function(){
+        document.onmousemove = null;
+        console.log("松开鼠标")
+    }
+
+   </script>
+</body>
+</html>

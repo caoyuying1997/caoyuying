@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+   
+</head>
+<body>
+    <button>按钮</button>
+    <div></div>
+
+    <script src = "../jQuery/jquery.min.js"></script>
+    <script>
+    $("button").on("click",function(){
+
+        $.ajax({
+            method:"GET",
+            url:"data.json",
+            dataType:"json",
+            success(res){
+                if (res.errno * 1 == 0){
+                    $("button").html("登陆成功")
+                    $("div").html(res.data.name + "欢迎你进入本网站")
+                }else{
+                    $("div").html(res.errmsg)
+                }
+                
+            },
+            error(){
+                alert("请重新加载")
+
+            }
+        })
+    })
+    
+    </script>
+    
+</body>
+</html>

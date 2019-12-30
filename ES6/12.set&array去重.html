@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //    数组的去重
+    // 方法一
+     var a1 = [1,2,3,3,4,4,5]
+     var b1 = new Set(a1);
+     console.log(b1)
+     console.log(Array.from(b1))
+
+
+    //  方法二
+     var c1 = [4,4,6,8,6,2,9]
+     var d1 = new Set(c1);
+     console.log(d1)
+     var f1 = [...d1]
+     console.log(f1)
+
+    //  方法三
+     function fun1(arr){
+        var tmp =[]
+        for(var i = 0;i<arr.length;i++){
+            if(!tmp.includes(arr[i])){
+                tmp.push(arr[i])
+            }
+        }
+        return tmp
+    }
+    console.log(fun1([1,1,2,3,4,4,5]))
+    
+    // 方法四
+     
+    
+   
+   
+     
+    
+
+
+    </script>
+</body>
+</html>

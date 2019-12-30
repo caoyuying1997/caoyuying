@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        哈哈哈哈哈
+        <p>社会主义好</p>
+    </div>
+    <p id="hah">dfja</p>
+    <script>
+        var oDiv = document.getElementsByTagName("div")[0];
+        console.log(oDiv.nodeName,oDiv.nodeType)
+        
+        var a = oDiv.firstChild
+        console.log(a.nodeName,a.nodeType)
+        console.log(oDiv.nextElementSibling)
+
+        var ha = document.getElementById("hah")
+        
+        var ob = document.createElement('div')
+        ob.innerHTML = "Aiors最棒"
+        oDiv.appendChild(ob)
+        
+        console.log(ob)
+
+        console.log(ob.previousElementSibling)
+        
+        var oa = document.createElement("p")
+        oa.innerHTML = "反倒是卡法比利时"
+        oDiv.replaceChild(oa,ob)
+
+        oDiv.setAttribute("index",1)
+        console.log(oDiv.getAttribute("index"))
+        // 通过setAttribute设置属性可在HTML结构中看到
+
+
+
+        
+
+
+        
+
+
+    </script>
+</body>
+</html>

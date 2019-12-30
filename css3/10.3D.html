@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            perspective: 200px;
+            /* 如果要开启3D视角需要给要开启3D视角元素的父元素，加上perspective，这个值越大离页面越近 */
+        }
+    
+        #wrapper{
+            height: 200px;
+            width: 200px;
+            background: pink;
+            transform:rotateY(30deg);
+            margin: 100px auto;
+            transform-style: preserve-3d;
+            /* 如果某元素的父元素已经开启3D视角，子元素需要保持3D变换，那么在该元素里需要保持3D效果  transform-style: preserve-3d*/
+
+        }
+        #inner{
+            height: 200px;
+            width: 200px;
+            background: aquamarine;
+            transform:rotateY(-30deg);
+            margin: 100px auto;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="inner"></div>
+    </div>
+</body>
+</html>

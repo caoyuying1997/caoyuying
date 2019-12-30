@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+
+    #container{
+      width: 750px;
+      height: 291px;
+      margin: 100px auto 0;
+      position: relative;
+    }
+    #swiper{
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    #swiper>img{
+      width: 750px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: opacity 1s ease;
+      /* 利用透明度opacity完成变换 */
+    }
+
+    #pointer{
+      width: 300px;
+      margin-left: -150px;
+      position: absolute;
+      left: 50%;
+      bottom: 30px;
+    }
+    #pointer>li{
+      float: left;
+      width: 50px;
+      height: 10px;
+      margin: 0 5px;
+      list-style: none;
+      text-align: center;
+      background: rgba(0,0,0,0.6);
+      cursor: pointer;
+      /* 划入变成小手 */
+    }
+    #pointer>.select{
+      background: #fff;
+    }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="swiper">
+          <img src="./img/1.jpg" alt="">
+          <img src="./img/2.jpg" alt="">
+          <img src="./img/3.jpg" alt="">
+          <img src="./img/4.jpg" alt="">
+          <img src="./img/5.jpg" alt="">
+        </div>
+    
+        <ul id="pointer">
+          <li class="select"></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+    
+    </div>
+    <script>
+    var ali = document.getElementsByTagName("li");
+    var aImg = document.getElementsByTagName("img");
+    var oCon = document.getElementById("container");
+    var tag = 0;
+    var Timer
+
+    for( var i = 0;i <ali.length;i++){
+        ali[i].index = i;
+        ali[i].onmouseover = function(){
+            tag = this.index;
+            changeslider();
+            
+        }
+    }
+
+    function changeslider(){
+        for(var j = 0;j<ali.length;j++){
+            ali[j].className ='';
+            aImg[j].style.opacity = 0;
+
+        }
+        ali[tag].className = "select";
+        aImg[tag].style.opacity = 1;
+        
+    }
+    
+    function goTimer(){
+        Timer = setInterval(function(){
+           tag ++;
+           if(tag > ali.length){
+               tag = 0
+           }
+           changeslider();
+
+        },1000)
+    }
+    goTimer();
+    // 进入页面自动启动定时器
+
+    //划入container终止定时器    
+   oCon.onmouseover = function(){
+    clearInterval(Timer)
+   }
+   //划出container区域开启定时器
+   oCon.onmouseout = function(){
+       goTimer();
+   }    
+    
+
+
+    </script>
+    
+    
+</body>
+</html>

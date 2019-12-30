@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* promise是一个抽象类，p1是他的实例化对象
+         promise包含两个参数resolve代表的是成功的回掉函数，reject代表失败的回掉函数
+        */
+    let p1 = new Promise(function(resolve,reject){
+       console.log("开始发送请求1")
+       setTimeout(() => {
+           let tag = true;
+           if(tag){
+               resolve();
+           }else{
+               reject();
+           }
+       }, 1000);
+
+    }).then(function(){
+        console.log("请求成功")
+    },function(){
+        console.log("请求失败")
+    })
+    /*then里面可以翻一个参数也可以放两个参数，如果是一个参数的情况，那么就是成成功回调操作
+    如果是两个的参数的话，第二个表示的是失败的回调操作
+    */
+
+    let p2 = new Promise(function(resolve,reject){
+       console.log("开始发送请求1")
+       setTimeout(() => {
+           let tag = true;
+           if(tag){
+               resolve();
+           }else{
+               reject();
+           }
+       }, 1000);
+
+    }).then(function(){
+        console.log("请求成功")
+    }).catch(function(){
+        console.log("请求失败")
+        
+    })
+
+    </script>
+    
+</body>
+</html>

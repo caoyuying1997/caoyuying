@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            height: 3000px;
+        }
+        #container{
+            height: 280px;
+            width: 520px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+           
+        }
+        #container>#picture{
+            height:100%;
+            width: 2600px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* 因为后面要改变left的值所以这里做好标明一下left top 的位置 */
+            transition: left 1s ease;
+        }
+        #picture>img{
+            height: 100%;
+            width: 520px;
+            float: left;
+        
+        }
+        #container>#pointer{
+            height: 20px;
+            width:150px;
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+        }
+        #pointer>li{
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            height: 100%;
+            width:20px;
+            list-style: none;
+            float: left;
+            text-align: center;
+            line-height: 20px;
+            position: relative;
+            margin-right:5px;
+           
+        
+            
+        }
+        #pointer> .show{
+            background: red;
+        }
+        #right,
+        #left{
+            display: inline-block;
+            height: 50px;
+            width: 50px;
+            background: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 50%;
+            
+        }
+        #right{
+           right: 0px;
+        }
+        #left{
+            left: 0px;
+        }
+        #left::after{
+            content: "";
+            display:inline-block;
+            height: 20px;
+            width: 20px;
+            border-left:5px solid white ;
+            border-bottom:5px solid white ;
+            transform: rotate(45deg);
+            position: absolute;
+            right:6px;
+            top: 12px;
+        }
+        #right::after{
+            content: "";
+            display: inline-block;
+            height: 20px;
+            width: 20px;
+            border-right:5px solid white;
+            border-bottom: 5px solid white;
+            transform: rotate(-45deg);
+            position: absolute;
+            top: 12px;
+            left: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="picture">
+            <img src="https://img.alicdn.com/tfs/TB1wQANr7Y2gK0jSZFgXXc5OFXa-1130-500.jpg_q100.jpg_.webp" alt="" >
+            <img src="https://img.alicdn.com/simba/img/TB1nOBCnSf2gK0jSZFPSutsopXa.jpg" alt="">
+            <img src="https://img.alicdn.com/tfs/TB1vbTkna61gK0jSZFlXXXDKFXa-520-280.jpg_q90_.webp" alt="">
+            <img src="https://img.alicdn.com/simba/img/TB1CHOYn4D1gK0jSZFsSuvldVXa.jpg" alt="">
+            <img src="https://img.alicdn.com/tfs/TB170_fnoD1gK0jSZFGXXbd3FXa-520-280.jpg_q90_.webp" alt="">
+        </div>
+        <ul id="pointer">
+            <li class="show">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <sapn id = "left"></sapn>
+        <sapn id = "right"></sapn>
+    </div>
+    <script>
+    var oPicture = document.getElementById("picture");
+    var ali = document.getElementsByTagName("li");
+    var oRight = document.getElementById("right");
+    var oLeft = document.getElementById("left");
+    var oCon = document.getElementById("container")
+    var tag = 0;
+    var Timer;
+
+
+    var tag;
+    // 给 li 绑定点击事件
+    for(var i = 0;i<ali.length;i++){
+        ali[i].index = i;
+        ali[i].onclick = function(){
+            tag = this.index;
+            changeslider();
+        }
+    }
+    function changeslider(){
+        for(var j = 0;j<ali.length;j++){
+            ali[j].className = ""
+        }
+        ali[tag].className = "show";
+        oPicture.style.left = -520 * tag + "px";
+    }
+    oRight.onclick = function(){
+        tag ++;
+        tag = tag > ali.length ? 0:tag
+        changeslider();
+    }
+
+    oLeft.onclick = function(){
+        tag --;
+        tag = tag < 0? ali.length - 1:tag;
+        changeslider();
+    }
+    goTimer();
+
+    oCon.onmouseover = function(){
+        clearInterval(Timer);
+    }
+
+    oCon.onmouseout = function(){
+        goTimer();
+    }
+    
+    function goTimer(){
+        Timer = setInterval(function(){
+            oRight.onclick();
+        },1500)
+    }
+    
+    </script>
+    
+   
+    
+</body>
+</html>

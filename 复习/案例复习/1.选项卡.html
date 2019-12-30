@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    #container{
+        width: 300px;
+        margin: 50px auto;
+        /* 利用margin让container居中展示 */
+    }
+    #menu{
+        width: 300px;
+        height: 50px;
+    }
+    #menu>li{
+        width: 100px;
+        height: 100%;
+        list-style: none;
+        float: left;
+        color:#ff8903;
+        background:  white;
+        text-align: center;
+        line-height: 50px;
+    }
+    #menu>.active{
+        background: #ff8903;
+        color: white;
+    }
+    #content{
+        height: 300px;
+        width: 100%;    
+        position: relative;
+    }
+    #content>div{
+        height: 100%;
+        width: 100%;
+        background: white;
+        color: #ff8903;
+        /* float: left; */
+       opacity: 0;
+       position: absolute;
+    }
+    #content>.show{
+        background: #ff8903;
+        color: white;
+        opacity: 1;
+        transition: 1s ease;
+    }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul id="menu">
+            <li class="active">菜单一</li>
+            <li>菜单二</li>
+            <li>菜单三</li>
+        </ul>
+        <div id="content">
+           <div class="show">内容一</div>
+           <div>内容二</div>
+           <div>内容三</div>
+        </div>
+    </div>
+    <script>
+        var oMenu = document.getElementById("menu")
+        var oContent = document.getElementById("content")
+        var ali = document.getElementsByTagName("li")
+        var oDiv = oContent.getElementsByTagName("div")
+
+        for(var i = 0;i < ali.length;i++){
+            ali[i].index = i
+            ali[i].onclick = function(){
+                for(var j = 0;j < ali.length;j++){
+                    ali[j].className = ""
+                    oDiv[j].className = ""
+                }
+                // 给所有元素全部去掉样式
+                ali[this.index].className = "active"
+                oDiv[this.index].className = "show"
+                // 给当前选中的加入类名
+            }
+        }
+        // 如果不设置this.index的话，因为有循环再，在没点击的情况下3个都会进行点击事件的绑定，也就是说无论点哪个i恒等于三
+        // i = 3
+    </script>
+</body>
+</html>

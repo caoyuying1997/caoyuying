@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var arr = [1,2,3]
+    console.log(arr)
+    // 判断引用数据类型到底是数组还是对象的三种方法 Array.isArray ，arr.constructor == Array，instanceof
+    console.log(Array.isArray(arr))
+    console.log(arr.constructor == Array)
+    console.log(arr.constructor == Object)
+    
+    function Student(name,age,weight){
+        this.name = name ,
+        this.age = age,
+        this.weight = age
+        // 注意这里是this.name  = name
+
+    }
+    var s1 = new Student("cyy",18,110);
+    Student.prototype.eat = function(){
+        console.log("eating>>>>>>>")
+    }
+
+    console.log(s1)
+    console.log(s1 instanceof Student)
+    // s1是否是Student的实例化对象
+
+    var s2 = new Student('aa', 7);
+    console.log(s2)
+    console.log(s2.name)
+
+    </script>
+    
+
+</body>
+</html>

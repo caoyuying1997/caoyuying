@@ -1,0 +1,373 @@
+/* 整体容器 */
+#container{
+    max-width: 500px;
+    margin: 0 auto;
+    
+}
+/* 第一栏千库招聘 */
+#header{
+    width: 100%;
+    height: 1.04rem;
+    display: flex;
+    background: #ffffff;
+    position: relative;
+    text-align: center;
+    
+}
+#header-left>i{
+    font-size:0.3rem;
+    color: #666666;
+    margin-left: 0.27rem;
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
+    
+    
+}
+#header-left>span{
+    font-size: 0.3rem;
+    color:#333333;
+    margin-left: 0.622rem;
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
+   
+}
+#header-right>i{
+    font-size:0.38rem;
+    color: #666666;
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
+    right: 0.68rem;
+   
+}
+#header-middle{
+    flex: 1;
+    width: 1.52rem;
+    height: 1.04rem;
+    font-size: 0.38rem;
+    line-height: 1.04rem;
+    font-weight: bold;
+
+}
+/* 图片及小图标 */
+#nav{
+    width: 100%;
+    height: 3.12rem;
+    background: #ffffff;
+}
+#picture{
+    margin-left:0.4rem;
+    position: relative;
+
+}
+
+#picture>img{
+    width: 6.7rem;
+    height:2.9rem;
+}
+#picture>span{
+    position: absolute;
+    font-size:0.46rem;
+    color: #ffffff;
+    left: 0.34rem;
+    top: 0.55rem;
+
+}
+#picture>#second{
+    position: absolute;
+    font-size: 0.24rem;
+    color: #ffffff;
+    left: 0.44rem;
+    top: 1.326rem;
+}
+#picture>#button{
+    position: absolute;
+    width: 1.312rem;
+    height: 0.48rem;
+    font-size: 0.24rem;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 0.3146rem;
+    left:0.34rem;
+    bottom: 0.538rem;
+    text-align: center;
+    line-height: 0.48rem;
+
+}
+#tubiao{
+    width: 100%;
+    height: 1.934rem;
+    background: #ffffff;
+ 
+}
+#list{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+#list-1{
+    
+    margin-left:0.52rem;
+    margin-right: 0.44rem;
+    margin-top: 0.22rem;
+    
+}
+#list-1>div{
+    height: 0.89rem;
+    width: 0.89rem;
+    border-radius: 50%;
+    margin: 0 auto;
+    line-height: .89rem;
+    font-size: 0.4rem;
+    color: #ffffff;
+    text-align: center;
+    background-image: linear-gradient(180deg, #3366FF 0%, #17A8FF 99%);
+}
+#list-1 .iconfont{
+    font-size: 0.4rem;
+}
+#list-1 .icon-wodezhanghu{
+    font-size: 0.54rem;
+
+}
+#list-1 .icon-huiyuan,
+#list-1 .icon-guanyuwomen
+{
+    font-size: 0.48rem;
+}
+
+#list-1>p{
+    width: 0.5rem;
+    height: 0.24rem;
+    color: #333333;
+    font-size: 0.24rem;
+    margin-top: 0.18rem;
+    text-align: center;
+    line-height: 0.24rem;
+    margin: 0.24rem auto 0;
+}
+#list-1>#orange{
+    background-image: linear-gradient(180deg, #FFC24D 0%, #FF844D 98%);
+}
+#list-1>#green{
+    background-image: linear-gradient(180deg, #14E7CD 0%, #29C7CA 100%);
+}
+#list-1>#purple{
+    background-image: linear-gradient(180deg, #FDA0FF 0%, #D532FD 100%);
+}
+#null{
+    width: 100%;
+    height: 0.2rem;
+}
+/* 简历投递模块 */
+#container>#info{
+    width: 100%;
+    height: 3.216rem;
+    background: #ffffff;
+    /* position: absolute; */
+    /* top: 0.3216rem; */
+    transform: translate(0,2.05rem);
+    
+}
+
+#info-title{
+    width: 100%;
+    height: 0.806rem;
+    border-bottom: 1px solid #D8D8D8 ;
+    position: relative;
+}
+#info-title>span{
+    width: 0.7.rem;
+    height: 0.34rem;
+    font-size: 0.34rem;
+    color:#00BEFF;
+    position: absolute;
+    font-weight: bold;
+    left: 0.27rem;
+    text-align: center;
+    line-height: 0.34rem;
+    top: 0.204rem;
+    bottom: 0.1rem;
+    
+    
+}
+#info-title>#square{
+    width: 0.28rem;
+    height: 0.06rem;
+    background:#00BEFF;
+    position: absolute;
+    left: 0.48rem;
+    top: 0.672rem;
+    
+}
+#info-title>#new{
+    display: inline-block;
+    font-size: 0.3rem;
+    position: absolute;
+    top: 0.246rem;
+    left: 1.39rem;
+    color: #333333;
+    
+
+}
+#info-title>p{
+    color: #787878;
+    font-size: 0.26rem;
+    position: absolute;
+    right: 0.588rem;
+    top: 0.266rem;
+}
+#info-title>#jiantou{
+    width: 0.1rem;
+    height: 0.1rem;
+    border: 1px solid transparent;
+    border-top-color :#787878;
+    border-right-color: #787878;
+    transform: rotate(45deg);
+    position: absolute;
+    right: 0.4rem;
+    top: 0.35rem;
+}
+#info-con{
+    position: relative;
+}
+#info-con>#info-con-1{
+    height: 0.806rem;
+    width:100%;
+    
+}
+#info-con-1>span{
+    font-size: 0.32rem;
+    position: absolute;
+    color: #333333;
+    top: 0.29rem;
+    left: 0.32rem;
+
+}
+#info-con-1>div{
+    font-size: 0.34rem;
+    position: absolute;
+    color: #009EFF;
+    top: 0.256rem;
+    right: 0.3rem;
+}
+#info-con-2{
+    width: 3.12rem;
+    height: 0.24rem;
+    position: absolute;
+    top: 0.806rem;
+    left: 0.36rem;
+}
+#info-con-2>span{
+    font-size: 0.24rem;
+    color: #787878;
+}
+#info-con-3>img{
+    width: 1.02rem;
+    height: 0.78rem;
+    position: absolute;
+    left: 0.16rem;
+    top: 1.45rem;
+    border: 1px solid  #D8D8D8;
+
+}
+#info-con-3>span{
+    font-size: 0.24rem;
+    color: #333333;
+    position: absolute;
+    left: 1.48rem;
+    top: 1.48rem;
+
+}
+#info-con-3>div{
+
+    font-size: 0.2rem;
+    color: #787878 ;
+    position: absolute;
+    left: 1.46rem;
+    top: 1.896rem;
+}
+#info-con-3>#toudi{
+    width: 1.3rem;
+    height: 0.56rem;
+    font-size: 0.26rem;
+    line-height: 1.3rem;
+    text-align: center;
+    color:#D8D8D8 ;
+    border: 1px solid #D8D8D8;
+    border-radius: 0.1rem;
+    position: absolute;
+    left:80%;
+    top: 1.48rem;
+
+}
+#toudi>div{
+    margin-top: -0.35rem;
+}
+#info-con-3>#toudi1{
+    width: 1.3rem;
+    height: 0.56rem;
+    font-size: 0.26rem;
+    line-height: 1.3rem;
+    text-align: center;
+    color:#009EFF  ;
+    border: 1px solid#009EFF ;
+    border-radius: 0.1rem;
+    position: absolute;
+    left:80%;
+    top: 1.48rem;
+
+}
+#toudi1>div{
+    margin-top: -0.35rem;
+}
+#null{
+    width: 100%;
+    height: 0.2rem;
+    background: #D8D8D8;
+}
+#bottom{
+    height: 0.92rem;
+    background: #ffffff;
+    width: 100%;
+    position: fixed;
+    bottom: 0rem;
+    border-top: 1px solid #D8D8D8;
+   
+
+}
+#bottom-list{
+    display: flex;
+    flex-wrap: wrap;
+}
+#bottom-list i{
+    font-size: 0.4rem;
+    color: #00BEFF;
+    margin-top: 0.4rem;
+    margin-left: 0.8rem;
+    margin-right: 0.6rem;
+    
+
+
+}
+#bottom-list #nextblue{
+    color: #00BEFF;
+}
+#bottom-list p{
+    font-size: 0.2rem;
+    color:  #D8D8D8;
+    margin-left: 0.76rem;
+    
+    
+}
+#bottom-list .icon-zhinanzhen,
+#bottom-list .icon-baogao,
+#bottom-list .icon-wode{
+color:#D8D8D8;
+}
+
+
+
+

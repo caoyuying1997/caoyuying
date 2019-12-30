@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #container{
+            position: relative;
+        }
+        #container>div{
+            height: 200px;
+            width: 200px;
+            border:10px solid black;
+            border-radius: 50%;
+            position: absolute;
+        }
+        #container>div:nth-child(1){
+            top: 0px;
+            left: 0px;
+            border-color: red;
+        }
+        #container>div:nth-child(2){
+            top: 0px;
+            left: 230px;
+            border-color: green;
+        }
+        #container>:nth-child(3){
+            top:0px;
+            left:460px;
+            border-color: yellow;
+        }
+        #container>div:nth-child(4){
+            top: 110px;
+            left: 110px;
+            border-color: black;
+        }
+        #container div:nth-child(5){
+            top: 110px;
+            left: 340px;
+            border-color: blue;
+        }
+        #container>div::after{
+            content: "";
+            display: block;
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            position: absolute;
+            top: -10px;
+            left: -10px;
+        }
+        #container>div:nth-child(1)::after{
+            border: 10px solid red;
+            z-index: 1;
+            border-bottom-color: transparent;
+        }
+        #container>div:nth-child(2)::after{
+            border:10px solid green;
+            z-index: 1;
+            border-left-color:transparent;
+        }
+        #container>div:nth-child(3)::after{
+            border: 10px solid yellow;
+            z-index: 1;
+            border-left: transparent;
+        }
+        #container>div:nth-child(5)::after{
+            border: 10px solid blue;
+            z-index: 1;
+            border-top-color: transparent;
+            border-right: transparent;
+        }
+        #hah{
+            position: relative;
+            height: 20px;
+            width: 20px;
+            font-size: 20px;
+            z-index: 1;
+        }
+        #hah::before{
+            content: "￥";
+            color: pink;
+            font-size: 30px;
+            
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div id="hah">123126</div>
+</body>
+</html>

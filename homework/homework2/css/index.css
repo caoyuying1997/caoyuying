@@ -1,0 +1,261 @@
+#container{
+    max-width: 750px;
+    margin: 0 auto;
+}
+/* 头部和搜索框 */
+#header{
+    display: flex;
+    height: 0.82rem;
+    background: #045BEA;
+    color: #ffffff;
+    font-size: 0.24rem;
+    line-height: 0.82rem;
+
+}
+#header-left i{
+    font-size: 0.43rem;
+    margin-left:0.17rem;
+    margin-right:0.79rem ;
+}
+#header-right i{
+   
+    font-size: 0.43rem;
+    margin-left:0.24rem;
+}
+#header-right i:nth-child(2){
+    margin-right: 0.17rem;
+}
+#header-middle{
+    flex: 1;
+    width: 4.94rem;
+    height: 0.56rem;
+    border-radius: 0.18rem;
+    background:#508df0 ;
+    color: #ffffff;
+    font-size: 0.24rem;
+    line-height: 0.56rem;
+    margin-top:0.13rem;
+}
+#header-middle i{
+   
+    margin-left: 0.19rem;
+   
+}
+#picture{
+    height: 3.23rem;
+    background: #045BEA;
+    position: relative;
+}
+#picture>span{
+    display: inline-block;
+    width: 2.77rem;
+    height: 1.19rem;
+    font-size: 0.48rem;
+    color: #ffffff;
+    position: absolute;
+    margin-top: 0.46rem;
+    margin-left: 0.53rem;
+
+}
+
+#picture>img{
+    height: 3.23rem;
+}
+#button{
+    width: 1.28rem;
+    height: 0.43rem;
+    background: #ffffff;
+    color: #025ae9;
+    font-size: 0.24rem;
+    position: absolute;
+    left: 0.57rem;
+    bottom:0.92rem;
+    text-align: center;
+    line-height:0.43rem ;
+}
+/* 导航窗口 */
+#nav{
+    display: inline-flex;
+    flex-wrap: wrap;
+    background: #ffffff;
+    width: 100%;
+   
+}
+.nav-list{
+    width: 1.29rem;
+    height: 1.25rem;
+    padding:0.32rem 0;
+    margin-left:0.2rem;
+    
+    
+}
+.nav-list .blue{
+    color: #1e4fff;
+}
+#nav .pink{
+    color: #f59ded;
+
+}
+.nav-list .red{
+    color:#ff083c;
+}
+.nav-list .grown{
+    color:#fab989;
+}
+.nav-list>div{
+    width: 0.56rem;
+    height: 0.49rem;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 0.49rem;
+    font-weight: bold;
+}
+.nav-list .iconfont{
+    font-size: 0.56rem;
+    
+    /* color: #0f5eff; */
+
+}
+.nav-list>p{
+    font-size: 0.24rem;
+    color: #1d1d1d;
+    text-align: center;
+    margin-top: 0.2rem;
+    font-weight: bold;
+  
+}
+/* 左右广告 */
+#advertise{
+    width: 100%;
+    height:1.51rem;
+    display: flex;
+    padding-top: 0.2rem;
+    background: #ffffff;
+    
+}
+#advertise>#left,
+#advertise>#right
+{
+    width: 3.6rem;
+    height: 1.51rem;
+    background: #aed1ff;
+    border-radius: 0.25rem;
+    position: relative;
+    
+}
+#advertise>#right{
+    background: #ffd89d;
+    position: relative;
+}
+#advertise>#left{
+    margin-left:0.1rem;
+    margin-right: 0.1rem;
+    position: relative;
+
+}
+#left>p{
+    font-size: 0.3rem;
+    position: absolute;
+    color: #151515;
+    top: 0.38rem;
+    left: 1.5rem;
+    font-weight: bold;
+    
+}
+#left>span{
+    display: inline-block;
+    margin-top: 0.2rem;
+    font-size: 0.12rem;
+    position: absolute;
+    top: 0.7rem;
+    left: 1.5rem;
+    color: #151515;
+
+ } 
+ #right>p{
+    font-size: 0.3rem;
+    position: absolute;
+    color: #151515;
+    top: 0.38rem;
+    left: 1.5rem;
+    font-weight: bold;
+}
+#right>span{
+    display: inline-block;
+    margin-top: 0.2rem;
+    font-size: 0.12rem;
+    position: absolute;
+    top: 0.7rem;
+    left: 1.5rem;
+    color: #151515;
+
+ } 
+
+#advertise img{
+    height: 1.51rem;
+    width: 1.4rem;
+    position: absolute;
+    left: 0;
+
+}
+/* 产品推荐 */
+#product{
+    background: #ffffff;
+    width: 100%;
+    height: 3.14rem;
+
+}
+#product>div{
+    height: 1rem;
+    line-height: 1rem;
+    font-size: 0.36rem;
+    color: #151515;
+    margin-left: 0.2rem;
+  
+}
+#product-licai{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 0.05rem;
+  
+}
+#product-licai>.product-list{
+    width: 2.3rem;
+    height: 1.85rem;
+    border: 1px solid #e9e9e9;
+    border-radius: 0.25rem;
+    margin-left: 0.1rem;
+    
+}
+.product-list>div{
+    text-align: center;
+}
+#product-list-first{
+    font-size: 0.24rem;
+    /* 字体大小设置不上的问题！！！！！！！ */
+    color: #151515;
+    margin-top:0.05rem;
+    font-weight: bold;
+}
+#product-list-second{
+    font-size: 0.4rem;
+    color:#ff1a1a;
+}
+
+#product-list-third{
+    font-size: 0.14rem;
+    color:#151515;
+    margin-bottom:0.05rem;
+}
+#product-list-last{
+    font-size: 0.14rem;
+    color: #151515;
+    text-align: center;
+  
+}
+body{
+    background: #ffffff;
+}
+
+
+

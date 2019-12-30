@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    function * fun(){
+        console.log("准备发送请求1")
+        yield request1();
+        console.log("准备发送请求2")
+        yield request2();
+        console.log("发送结束")
+    }
+     let fn = fun();
+     console.log(fn.next()) //这里返回的是一个对象{value: undefined, done: false}
+    //  value是返回的值，这里面没有设置返回值，所以是undefined，done表示的是是否执行完成
+
+     function request1(){
+        setTimeout(() => {
+            console.log("请求1成功")
+            fn.next();
+
+        }, 1000);
+    }
+   function  request2 (){
+        setTimeout(() => {
+            console.log("请求2成功")
+            fn.next();
+
+        }, 1000);
+    }
+
+
+
+    function* fun1(){
+        console.log("sss");
+        yield request();
+    }
+    fun1();//没有next根本就不会调用
+    </script>
+</body>
+</html>

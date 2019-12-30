@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+
+        }
+        body{
+            perspective: 800px;
+            background: #000000;
+            position: relative;
+        }
+        h1{
+            font-size: 50px;
+            font-weight: 800;
+            text-shadow: 10px 10px 5px aquamarine;
+            color: pink;
+            text-align: center;
+        }
+        #container{
+            height: 200px;
+            width: 200px;
+            margin: 130px auto 0;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: move 2s ease infinite;
+
+        }
+        @keyframes move{
+            from{
+                transform: rotateY(0deg) rotateZ(0deg);
+            }
+            to{
+                transform: rotateY(360deg)  rotateZ(360deg);
+            }
+            
+        }
+        #container>div{
+            height: 100%;
+            width: 100%;
+            border-radius: 10px;
+            
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            text-align: center; 
+            line-height: 200px;
+            font-size: 50px;
+            color:violet;
+            text-shadow: 5px 5px  5px skyblue;
+            
+        }
+        #one{
+            transform:rotateX(-90deg) translateZ(100px);
+            background: url("./img/6.jpg");
+            background-size: 200px 200px;
+        }
+        #two{
+            transform:translateZ(100px) ;
+            background: url("./img/7.jpg");
+            background-size: 200px 200px;
+        }
+        #three{
+            transform: rotateY(-90deg) translateZ(100px);
+            background: url("./img/5.jpg");
+            background-size: 200px 200px;
+        }
+        #four{
+            transform: rotateY(-180deg) translateZ(100px);
+            background: url("./img/4.jpg");
+            background-size: 200px 200px;
+        }
+        #five{
+            transform: rotateY(90deg) translateZ(100px);
+            background: url("./img/3.jpg");
+            background-size: 200px 200px;
+        }
+        #six{
+            transform: translateZ(-100px);
+            background: url("./img/2.jpg");
+            background-size:200px 200px;
+        }
+        audio{
+            position: absolute;
+            top: 0px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>小曹学习的动力如下</h1>
+    <div id="container">
+        <div id="one"></div>
+        <div id="two"></div>
+        <div id="three"></div>
+        <div id="four"></div>
+        <div id="five"></div>
+        <div id="six"></div>
+    </div>
+    <audio src="./img/facai.mp3" autoplay controls loop></audio>
+</body>
+</html>
