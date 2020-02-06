@@ -8,7 +8,9 @@
 </head>
 <body>
     <script>
-    
+    // generator 方法 通过*来定义
+    // 通过.next()手动触发
+    // 遇到yeild暂停直到执行下一个.next()
     function * fun(){
         console.log("准备发送请求1")
         yield request1();
@@ -41,7 +43,7 @@
         console.log("sss");
         yield request();
     }
-    fun1();//没有next根本就不会调用
+    // fun1();  没有next根本就不会调用
     </script>
 </body>
 </html>

@@ -1,0 +1,14 @@
+.home-img>img{
+    width: 830px;
+    height:545px;
+}
+.home-img{
+    text-align: center;
+}
+.home{
+    position: relative;
+}
+.home>h2{
+    position: absolute;
+    margin-left: 150px;
+}

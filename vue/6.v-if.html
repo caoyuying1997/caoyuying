@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- v-if不需要频繁的控制元素的展示和隐藏 -->
+    <!-- v-show需要频繁的控制元素的展示和隐藏,以display的方式呈现 -->
+    <div id="app">
+      <button @click = "change">点击</button>
+      <p v-if = "tag">马上下课啦</p>
+      <p v-else>不可以下课</p>s
+      <p v-show = 'tag'>在家隔离</p>
+
+    </div>
+
+    <script src = "./vue.js"></script>
+    <script>
+        let vm  = new Vue({
+            el:"#app",
+            data:{
+                tag:true,
+            },
+            methods:{
+                change(){
+                    this.tag = !this.tag
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="./browser.min.js"></script>
+    <script src="./react.development.js"></script>
+    <script src="./react-dom.development.js"></script>
+    <script type = 'text/babel'>
+    // 主组件
+    class Com extends React.Component{
+        constructor(params){
+            super(params)
+            this.state = {
+                list:[1,2,3]
+            }
+            this.addFun = this.addFun.bind(this)
+        }
+        addFun(data){
+            let list = [...this.state.list]
+            list.push(data)
+            this.setState({
+                list
+            })
+        }
+        render(){
+            return(
+                <div>
+                    <h1>To do list</h1>
+                    <Add addFun = {this.addFun}/>
+                    <List list = {this.state.list}/>
+                </div>
+            )
+        }
+    }
+    // Add组件
+    class Add extends React.Component{
+        constructor(params){
+            super(params)
+            this.add = this.add.bind(this)
+            
+        }
+        add(){
+            this.props.addFun(this.refs.Input.value)
+            this.refs.Input.value = ''
+            // 注意这里是this.refs.Input.value来拿到输入的值
+        }
+        render(){
+            return(
+                // 用ref属性来拿到输入框里面输入的值
+                <div>
+                    <input type="text" ref = 'Input'/>
+                    <button onClick = {this.add}>添加</button>
+                </div>
+            )
+        }
+    }
+    // List组件
+    class List extends React.Component{
+        constructor(params){
+            super(params)
+           
+        }
+        render(){
+            return(
+                <div>
+                    <ul>
+                    {
+                        this.props.list.map((value,index) => (
+                            <li key={index}>{value}</li>
+                            ))
+                    }
+                    </ul>
+                </div>
+            )
+        }
+    }
+    ReactDOM.render(<Com/>,document.getElementById('app'))
+    
+    </script>
+</body>
+</html>

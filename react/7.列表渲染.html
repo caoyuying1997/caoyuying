@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="./browser.min.js"></script>
+    <script src="./react.development.js"></script>
+    <script src="./react-dom.development.js"></script>
+    <script type = 'text/babel'>
+    // 利用map进行列表遍历，的那必须绑定一个唯一的key值
+    class Com extends React.Component{
+        constructor(params){
+            super(params)
+           
+        }
+        render(){
+            // 这个列表定义在render里面
+            let list =[{
+                name:"zs",
+                age:18
+            },{
+                name:'cy',
+                age:15
+            },{
+                name:'ha',
+                age:16
+            }]
+            return(
+                <div>
+                     <ul>
+                    {
+                       list.map((obj,index) =>(
+                            <li key = {index} >{obj.name}:{obj.age}</li>
+                        ))
+                    }               
+                    </ul>
+                </div>
+            )
+        }
+    }
+    ReactDOM.render(<Com/>,document.getElementById('app'))
+    
+    </script>
+</body>
+</html>

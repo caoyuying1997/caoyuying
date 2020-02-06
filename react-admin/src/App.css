@@ -1,0 +1,13 @@
+.App {
+ width:100%;
+}
+._left{
+ 
+  height: 100vh;
+  background: #001529;
+}
+/* 解决了页面的抖动问题 */
+html,body{ overflow-y:scroll;}
+html,body{ overflow:scroll; min-height:101%;}
+html{ overflow:-moz-scrollbars-vertical;}
+

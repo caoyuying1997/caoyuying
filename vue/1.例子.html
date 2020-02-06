@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <input type="text" v-moudle ="msg">
+            <button @click = "add">添加</button>
+        </div>
+    </div>
+    <!-- 数组 循环生成 -->
+    <ul>
+        <li v-for = "item in list">
+            <span>{{item}}</span>
+            <button>删除</button>
+        </li>
+    </ul>
+    <script src="./vue.js"></script>
+    <script>
+        let vm = new vue({
+            el:"#app",
+            data:{
+                msg:"",
+                list:[],
+
+            },
+            method:{
+                // 添加方法
+                // 1.获取input的值
+                // 2.讲获取的值插入到list中
+                // 3.页面中循环渲染数组
+                add(){
+                    console.log(this.msg)
+                    
+                    this.list.push(this.msg)
+                    this.msg = " "
+
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper{
+            background: pink;
+        }
+        .container{
+            color:blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 利用v-bind绑定样式，如果是多个里面还有双目运算符的话需要用数组 -->
+        <div v-bind:class = "{wrapper:tag}">1232456</div>
+        <div v-bind:class = "['wrapper',isB ? 'container':'']">654778955</div>
+        <div v-bind:class = "{wrapper:tag, container:isB}">6666666</div>
+        <span v-bind:index = "name">hahflh</span>
+        <!-- 绑定属性会显示在内联样式里面 -->
+        <button @click = "change">转换</button>
+
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+    let vm = new Vue({
+        el:"#app",
+        data:{
+            tag:true,
+            isB:false,
+            name:"cyy"
+
+        },
+        methods:{
+            change(){
+                this.tag = !this.tag;
+                this.isB = !this.isB;
+            }
+        }
+    })
+
+    </script>
+</body>
+</html>

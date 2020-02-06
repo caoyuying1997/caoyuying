@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active{
+            color:skyblue;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <input type="text" v-model = "msg" @keyup = "search">
+            <!-- 绑定点击事件 -->
+            <!-- 利用双向数据绑定，点击后先获取用户输入的内容然后再把他显示出来 -->
+            <button @click = "add">添加</button>
+        </div>
+        <ul>
+            <li v-for = "(item,index) in showlist"  @click = "changeactive(item)" >
+                <span v-bind:class = "{active:item.isActive}">{{item.content}}</span>
+                <!-- this.item表示当前自己的active -->
+                <button @click.stop = "del(index)">删除</button>
+                <!-- .stop阻止了事件的冒泡 -->
+            </li>
+        </ul>
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el:"#app",
+            data:{
+                msg:"",
+                list:[
+                    {
+                        content:"11",
+                        isActive :false
+
+                    }
+                ],
+                showlist:[
+                    {
+                        content:"11",
+                        isActive :false
+
+                    }
+                ]
+                //  这种从外部定义的isActive会让整个li都产生作用,所以挪到list里面使得每一个span都可以独立获得样式
+                
+
+            },
+            methods:{
+                add(){
+                    console.log(this.msg)
+                    this.list.push({
+                        content:this.msg,
+                        isActive:false,
+                        
+                    })
+                    this.showlist = [...this.list]
+                    this.msg = ""//添加完成后清空input输入框
+                    
+                },
+                changeactive(item){
+                   item.isActive = !item.isActive
+                //    当前li下的样式改变
+                this.showlist = [...this.list]
+
+                },
+                del(index){
+                    this.showlist = [...this.list]
+                    this.list.splice(index,1)
+                },
+                search() {
+                    this.showlist = this.list.filter((value, index) => {
+                        return value.content.includes(this.msg)
+                    })
+                 }
+            }
+        })
+    </script>
+</body>
+</html>

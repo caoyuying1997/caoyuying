@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ES6用class定义类
+        // constructor代表的是构造函数
+        class Person{
+            constructor(name,age){
+                this.name = name;
+                this.age = age
+
+            }
+            // Person下的方法
+            eat(){
+                console.log(`${this.name}正在吃....`)
+            }
+
+        }
+        let p1 = new Person("cyy",18)
+        console.log(p1)
+        p1.eat();
+    
+
+        //ES6的类的继承
+        // 用extends表示的是student继承了Person类
+        class Student extends Person{
+            // constructor 构造函数里面必须又super，来继承person的属性和方法
+            constructor(name,age,grade){
+                super(name,age);
+                this.grade = grade;
+            }
+            sleep(){
+                console.log(`${this.name}正在睡觉....`)
+            }
+            static play(){
+                console.log("正在玩游戏....")
+            }
+            // static静态函数只能被类调用，不能被实例化的对象所调用
+        } 
+        let s1 = new Student("mz",19 ,20)
+        console.log(s1);
+        s1.eat();
+        s1.sleep();
+        // s1.play(); 静态函数不支持这种调用方式
+        Student.play();
+    </script>
+</body>
+</html>

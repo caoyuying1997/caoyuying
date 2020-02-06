@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <p>{{count}}</p>
+    <script src="./vue.js"></script>
+    <button @click = "change">change</button>
+    <script>
+        let vm = new Vue({
+            el:"#app",
+            data:{
+                count:0,
+            },
+            method:{
+                change(){
+                    this.count++;
+                }
+
+            },
+            // 在实例创建之前调用
+            beforeCreate(){
+                console.log("-------beforeCreate------")
+                console.log("el:",this.$el) //undefined
+                console.log("data:",this.$data) //undefined
+
+            },
+            // 实例创建完成之后调用
+           created(){
+                console.log("-------created------")
+                console.log("el:",this.$el) //undefined
+                console.log("data:",this.$data) //data
+
+            },
+            // 在data模板中线占一个位置
+            beforeMount(){
+                console.log("-------created------")
+                console.log("el:",this.$el) //undefined
+                console.log("data:",this.$data) //data
+
+            },
+            
+        })
+    </script>
+</body>
+</html>

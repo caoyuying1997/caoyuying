@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     
+    <div id="app">
+        <input type="text" v-model="msg">
+        <input type="checkbox" v-model = "fruit" value = "apple">苹果
+        <input type="checkbox" v-model = "fruit" value= "banana">香蕉
+        <input type="checkbox" v-model = "fruit" value= "pear">梨
+        </br>
+
+        <input type="radio"  v-model = "sex" value="1">男
+        <input type="radio"  v-model = "sex" value="2">女
+
+        <!-- 下拉列表 -->
+        <select v-model = "city">
+            <option value="哈">哈尔滨</option>
+            <option value="大庆">大庆</option>
+            <option value="牡">牡丹江</option>
+            <option value="尚">尚志</option>
+        </select>
+
+      
+    </div>
+    
+
+    <script src="./vue.js"></script>
+    <script>
+        // 双向数据绑定v-model
+        //在页面里面修改可以在data里面同步，在data里面修改也可以同步到页面
+        // 只有在表达表单元素才可以用v-moudle 
+
+        let vm = new Vue({
+            el:"#app",
+            data:{
+                msg:"123",
+                fruit: ["pear"],
+                sex:"1",
+                city: '',
+
+            }
+        })
+
+
+
+    </script>
+</body>
+</html>

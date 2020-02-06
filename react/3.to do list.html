@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active{
+            background: powderblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="./browser.min.js"></script>
+    <script src="./react.development.js"></script>
+    <script src="./react-dom.development.js"></script>
+    <script type="text/babel">
+    
+    // 主组件
+    class Main extends React.Component{
+        constructor(params){
+            super(params)
+            this.state ={
+                list : [
+                    {
+                        id:1,
+                        name:'吃饭饭',
+                        isActive:false
+                    },{
+                        id:2,
+                        name:'睡觉觉',
+                        isActive:false
+                    },{
+                        id:3,
+                        name:'打豆豆',
+                        isActive:false
+                    }
+                ],
+                showlist:[
+                {
+                        id:1,
+                        name:'吃饭饭',
+                        isActive:false
+                    },{
+                        id:2,
+                        name:'睡觉觉',
+                        isActive:false
+                    },{
+                        id:3,
+                        name:'打豆豆',
+                        isActive:false
+                    }
+                ]
+            }
+            this.changeFun  = this.changeFun.bind(this)
+            this.addFun = this.addFun.bind(this)
+            this.delFun = this.delFun.bind(this)
+            this.searchFun = this.searchFun.bind(this)
+            
+        }
+        // 因为isActive是在state下的所以子组件不能修改，要传回父组件进行修改
+        changeFun(id){
+            // 这里用扩展运算符是因为setState的官方规定，不能修改原数组
+            let list = [...this.state.list]
+            list.forEach((obj) =>{
+                if(obj.id == id){
+                    obj.isActive = !obj.isActive
+                }
+            })
+            this.setState(
+                {
+                    list,
+                    showlist:list
+                }
+            )
+
+        }
+        
+        // 添加方法向末尾追加一条数据
+        addFun(data){
+            let list = [...this.state.list]
+            list.push({
+                id:new Date().getTime(),
+                name:data,
+                isActive:false
+            })
+            this.setState(
+                {
+                    list,
+                    showlist:list
+                }
+            )
+            
+        }
+
+        // 删除方法同过filter过滤出不含有删除元素的新数组
+        delFun(id){
+            let list = this.state.list.filter((obj) => {
+                return obj.id != id
+            })
+            this.setState(
+                {
+                    list,
+                    showlist:list
+                }
+            )
+        }
+
+        //搜索方法
+        searchFun(value){
+            let list = this.state.list.filter((obj) => {
+                return obj.name.includes(value)
+           
+            })
+            this.setState(
+                {
+                    showlist:list
+                }
+            )
+        } 
+
+        render(){
+            return(
+                <div>
+                <h1>To do list</h1>
+                <Search searchFun = {this.searchFun}/>
+                <Add addFun = {this.addFun}/>
+                <List list = {this.state.showlist} changeFun = {this.changeFun} delFun = {this.delFun}/>
+
+                </div>
+            )
+            
+        }
+    }
+    
+    // 搜索组件
+    class Search extends React.Component{
+        constructor(params){
+            super(params)
+        }
+        search(){
+            this.props.searchFun(this.refs.searchInput.value)
+           
+        }
+        render(){
+            return(
+                <div>
+                <span>搜索 ：</span>
+                <input type="text" ref = 'searchInput' onKeyUp = {this.search.bind(this)}/>
+                </div>
+            )
+            
+        }
+    }
+
+    //添加组件 
+    class Add extends React.Component{
+        constructor(params){
+            super(params)
+        }
+        add(){
+            // 获取input输入框离得value，然后调用父组件李的addFun
+            this.props.addFun(this.refs.addInput.value)
+            this.refs.addInput.value = ''
+        }
+        render(){
+            return(
+                <div>
+                <span>添加 ：</span>
+                <input type="text" ref = 'addInput' />
+                <button onClick = {this.add.bind(this)}>add</button>
+                </div>
+            )
+            
+        }
+    }
+
+    // 列表组件
+    class List extends React.Component{
+        constructor(params){
+            super(params)
+           
+        }
+        change(id){
+            this.props.changeFun(id)
+        }
+        del(id){
+            this.props.delFun(id)
+        }
+        render(){
+            return(
+                <div>
+                {
+                    this.props.list.map((obj) =>(
+                        <li key = {obj.id} className = {obj.isActive? 'active':''} >
+                            <input type="checkbox"  onChange ={this.change.bind(this,obj.id)}/>
+                            <span>{obj.name}</span>
+                            <button onClick ={this.del.bind(this, obj.id)}>del</button>
+                        
+                        </li>
+                    ))
+                    // bind里面obj.id的含义是：当绑定函数被调用时，这些参数将置于实参之前传递给被绑定的方法
+                    // 这里箭头函数用小阔号是因为简写，只返回一条语句时就可以用简写
+                }
+                </div>
+            )
+            
+        }
+    }
+    ReactDOM.render(<Main/>,document.getElementById('app'))
+    
+    
+    
+    </script>
+</body>
+</html>

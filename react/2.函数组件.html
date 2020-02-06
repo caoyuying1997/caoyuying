@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 函数组件一般是用于展示的，又称作无状态组件，没有生命周期 -->
+    <!-- 组件的名字大写，引用组件时可以通过参数props来接收参数 -->
+    <div id="app"></div>
+    <script src="./browser.min.js"></script>
+    <script src="./react.development.js"></script>
+    <script src="./react-dom.development.js"></script>
+    <script type = 'text/babel'>
+    function Com(props){
+        let name = 'cyy'
+        return(
+            <div>
+                <h1>hello world</h1> 
+                <p>{name}</p>
+                <p>身高:{props.info.height}</p>
+                <p>体重：{props.info.weight}</p>
+                <p>年龄：{props.age}</p>
+            </div>
+        )
+    }
+    ReactDOM.render(<Com age = {18} info = {
+        {
+            height:'166cm',
+            weight:'105kg'
+        }
+    }/>,document.getElementById("app"))
+    </script>
+</body>
+</html>

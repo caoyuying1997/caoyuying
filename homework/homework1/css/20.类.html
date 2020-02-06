@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 类是一个构造函数，它是具有相同属性和方法的一类集合
+        // 类名的首字母大写，这和一般定义的函数不同
+        // 属性写在类下面，方法卸载原型prototype下，prptotype本书就是一个属性
+
+
+        function Person(name,age){
+            this.name  = name;
+            this.age = age;
+            // this.eat = function(){
+            //     console.log(this.name + "is eating")
+            // }
+            
+        }
+        // let p1 = new Person("cyy",18) //这里需要通过new关键字来实例化一个person的对象
+        // console.log(p1)
+
+        // 利用prototype定义方法
+        Person.prototype.sleep = function(){
+            console.log(this.name  + "正在睡觉");
+            // 这个属于原型下的方法，在控制台应该扩展出再看
+        }
+        
+        
+        // let p2 = new Person("caoyuying",20)
+        // console.log(p2)
+        // console.dir(Person)
+        /*
+        console.log()会在浏览器控制台打印出信息
+        console.dir()可以显示一个对象的所有属性和方法
+        */
+        
+        /*继承
+        1.继承父类的属性 父类.call(this,参数1，参数2，参数...)
+        2.继承父类的原型 子类.prototype = new 父类()
+                        子类.prototype.sonstructor = 子类 /把constructor再重新指向子类
+        */
+        
+
+
+        function Student(name,age,grade){
+            this.grade = grade;
+            Person.call(this,name,age);
+            //因为name和age是person实例化对象下的属性，所以需要改变student的指针
+            // student将指针指向person继承父类的属性
+        }
+        // let s2 = new Student("hah",18,19)
+        // console.log(s2)
+        // console.log(s2.eat())  这种情况输出是undefined因为student只继承了父类的属性，无法继承他的原型
+
+        // 继承父类的原型
+        Student.prototype = new Person();//这样就把student的constructor指向person
+        Student.prototype.constructor = Student //再把constructor指会stuednt
+         
+       
+
+        Student.prototype.water = function(){
+            console.log(`${this.name}正在喝水.....`)
+            
+        }
+        
+        let s3 = new Student("dsfjh",16,89)
+        console.log(s3)
+        s3.water();//这个函数里面本本身就有输出了，不用再输出一遍了
+        s3.sleep();
+
+        
+    </script>
+</body>
+</html>

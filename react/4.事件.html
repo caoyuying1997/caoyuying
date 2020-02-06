@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="./browser.min.js"></script>
+    <script src = './react.development.js'></script>
+    <script src = './react-dom.development.js'></script>
+    <script type = 'text/babel'>
+
+    // state:需要改变后重新渲染的页面的放在状态里，改变后不需要重新渲染页面的存到普通属性里
+    class Com extends React.Component{
+        constructor(params){
+            super(params)
+            this.state = {
+                num:1
+            }
+            this.fun = this.fun.bind(this)
+            // 自定一的方法必须要改变指针的指向
+
+        }
+        fun(){
+           this.setState({
+               num:this.state.num + 1
+           })
+            
+        }
+        render(){
+            return(
+                // 注意this.props是获取参数的，前提是你得给他传递参数
+                <div>
+                    <p>num:{this.state.num}</p>    
+                    <p>age:{this.props.age}</p>
+                    <button onClick ={this.fun}>num + 1</button>
+                </div>
+            )
+
+        }
+    }
+    ReactDOM.render(<Com  age = '18'/>,document.getElementById('app'))
+    
+    
+    
+    
+    </script>
+</body>
+</html>

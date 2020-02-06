@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content{
+            color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="./browser.min.js"></script>
+    <script src="./react.development.js"></script>
+    <script src="./react-dom.development.js"></script>
+
+    <script type="text/babel">
+    let a =5
+    let b = 7
+    let name = 'cyy'
+
+    let _style = {
+        color:'pink',
+        backgroundColor:'blue'
+    }
+    // class 在这里变成className
+    // for循环 => htmlFor
+    // render里面必须有一个唯一的父元素
+    // React中的括号表示的是表达式，{{}}表示的是表达式里面有一个括号
+    ReactDOM.render(
+        <div>
+            <p style = {_style}>hello world！</p>
+            <h1 className = "content">hello world</h1>
+            <p>a+b ={a+b}</p>
+            <p style = {
+                {
+                    color:'yellow'
+                }
+            }>name:{name}</p>
+        </div>,
+        document.getElementById('app')
+    )
+    
+    </script>
+</html>

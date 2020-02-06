@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button @click = "add(value,aa)">点击</button>
+        <ul>
+            <li v-for = "item in list">
+                {{item.name}}:{{item.age}}
+            </li>
+        </ul>
+        
+
+    </div>
+    <script src="./vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el:"#app",
+            data:{
+                list:[
+                    {
+                        name:"cyy",
+                        age:15
+                    },{
+                        name:"dhh",
+                        age:65
+                    },{
+                        name:"sdfs",
+                        age:25
+                    }
+                ]
+            },
+            methods:{
+                add(value,aa){
+                    console.log(value)
+                    console.log(event)
+                    this.list.push({
+                        name:"whh",
+                        age:16
+                    })
+                }
+
+            }
+        })
+    </script>
+</body>
+</html>

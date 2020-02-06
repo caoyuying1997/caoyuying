@@ -19,6 +19,7 @@
        function deepclone(obj){
            var temp = {}
            for(var key in obj){
+<<<<<<< HEAD
                 //    console.log(key)
                 //    console.log(obj[key])
                 if(typeof obj[key] === "object"){
@@ -26,6 +27,15 @@
                 }else{
                     temp[key] = obj[key]
                 }
+=======
+            //    console.log(key)
+            //    console.log(obj[key])
+            if(typeof obj[key] === "object"){
+                temp[key] = deepclone(obj[key])
+            }else{
+                temp[key] = obj[key]
+            }
+>>>>>>> 3f4dde812f8cf09f45e437d3ecf6fa9fd7e7fa98
            }
            return temp
        }

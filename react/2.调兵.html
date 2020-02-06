@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="./browser.min.js"></script>
+    <script src="./react.development.js"></script>
+    <script src="./react-dom.development.js"></script>
+    <script type="text/babel">
+        class Main extends React.Component{
+            constructor(params){
+                super(params)
+                this.state ={
+                    total:120,
+                    numA :80,
+                    numB :40
+
+                }
+                this.change = this.change.bind(this)
+            }
+
+            change(tag){
+                // 这里的tag是子组件传回的name，用来标记numA，numB的
+                if(this.state.total <= 0){
+                    alert("士兵数量不足")
+                }else{
+                    this.setState({
+                        total:this.state.total - 20,
+                        [`num${tag}`]: this.state[`num${tag}`] + 20
+                    })
+                }
+            }
+            render(){
+                return(
+                    <div id = 'main'>
+                        <h1>将军开始调兵</h1>
+                        <h2>剩余士兵的数量：{this.state.total}</h2>
+                        <Child name = 'A' number = {this.state.numA} change = {this.change}/>
+                        <Child name = 'B' number = {this.state.numB} change = {this.change}/>
+                    
+                    </div>
+                )
+            }
+        }
+
+        class Child extends React.Component{
+            constructor(params){
+                super(params)
+                this.changeFun = this.changeFun.bind(this)
+            }
+            changeFun(){
+                // 把父组件的change传给了子组件，然后又把name又传回给了父组件
+                this.props.change(this.props.name)
+            }
+
+            render(){
+                return(
+                    <div id = 'child'>
+                        <h3>军队{this.props.name}有士兵{this.props.number}人</h3>
+                        <button onClick = {this.changeFun}>调兵</button>
+
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<Main/>, document.getElementById('app'))
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+     <!-- 组件名字，需要把驼峰式改成中划线 -->
+        <my-component title = "hello"><my-component>
+        <tpl></tpl>
+    </div>
+    
+    <div id="content">
+        <my-component title = "11111"><my-component>
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+        // 全局组件
+        // 第一个参数组件名称，第二个参数是对象
+        // template是组建模板，必须要有一个唯一的根元素
+        Vue.component("myComponent",{
+            template:"<div>{{title}}</div>",
+            props:["title"]
+        })
+
+        let vm = new Vue({
+            al:"#app",
+            data:{
+
+            },
+            // 局部组件
+            components:{
+                "tpl":{
+                    template:"<div>hhhhha</div>"
+                },
+
+            }
+        })
+
+        let con  = new Vue({
+            el:"#content",
+            data:{
+
+            }
+        })
+
+    </script>
+    
+</body>
+</html>

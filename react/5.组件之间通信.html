@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="./browser.min.js"></script>
+    <script src="./react.development.js"></script>
+    <script src="./react-dom.development.js"></script>
+    <script type = 'text/babel'>
+    class Parent extends React.Component{
+        constructor(params){
+            super(params)
+            this.state = {
+                num :1
+            }
+            this.addFun = this.addFun.bind(this)
+        }
+        addFun(){
+            this.setState({
+                num:this.state.num +1
+                // 注意这里setState是一个function
+            })
+        }
+        render(){
+            return(
+                <div>
+                <h1>父组件</h1>
+                <p>num :{this.state.num}</p>
+                <Children addFun = {this.addFun}/>
+                </div>
+            )
+        }
+    }
+    class Children extends React.Component{
+        constructor(params){
+            super(params)
+            this.add = this.add.bind(this)
+        }
+        add(){
+            this.props.addFun()
+            // 拿到了父组件的+1方法
+        }
+        render(){
+            return(
+                <div>
+                <h1>子组件</h1>
+                <button onClick = {this.add}>点击num+1</button>
+                </div>
+            )
+        }
+    }
+    
+    ReactDOM.render(<Parent/>,document.getElementById('app'))
+    </script>
+</body>
+</html>
